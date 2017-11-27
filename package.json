@@ -1,6 +1,6 @@
 {
   "name": "ngx-iban",
-  "description": "Angular directive for validating IBAN input fields.",
+  "description": "Angular 2+ directive for validating IBAN input fields.",
   "version": "1.0.0",
   "homepage": "https://github.com/mmjmanders/ngx-iban",
   "author": {
@@ -21,11 +21,9 @@
   "bugs": {
     "url": "https://github.com/mmjmanders/ngx-iban/issues"
   },
-  "private": true,
   "scripts": {
     "start": "gulp build",
     "test": " gulp test",
-    "demo": " gulp build:demo",
     "check-travis": " travis-status --repo=mmjmanders/ngx-iban --branch=master --fail-pending || echo 'Not yet passing'"
   },
   "dependencies": {

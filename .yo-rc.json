@@ -24,7 +24,7 @@
       "iban"
     ],
     "dependenciesRange": "^",
-    "ngPrefix": "mm",
+    "ngPrefix": "ngx",
     "useGreenkeeper": false,
     "useCompodoc": false,
     "enforceNgGitCommitMsg": false,

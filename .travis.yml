@@ -1,27 +1,30 @@
 sudo: required
 dist: trusty
-
-#install google chrome, using addons
 addons:
   apt:
     sources:
-      - google-chrome
+    - google-chrome
     packages:
-      - google-chrome-stable
-
+    - google-chrome-stable
 language: node_js
 node_js:
-  - "6"
-
+- '8'
 before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - npm install --quiet -g gulp-cli
-
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- npm install --quiet -g gulp-cli
 script: gulp test:ci
-
+before_deploy:
+- yarn run start
+- cd dist
+deploy:
+  provider: npm
+  skip_cleanup: true
+  on:
+    tags: true
+    repo: mmjmanders/ngx-iban
+  api_key:
+    secure: i5WHmsE6r1+0G2pwx2aSrNW3A4nzQYOko3weOLWxUhiH7ZBPRWLSAvtnir3WSiO9r4f0yQsbyuUA6S73qW6nBitz7iOflimWVuWi+6yJWRlKEDKtFC4RKbBUqZ+P8ZVGoMk6RizQqfZIZ7hK2n4vcNjRHp9ULCIIyY9ThYP+ihjfOZEHZ6H9mbjK6GudO5iJJwJefrxEl83wyMFA/c3Eitf4+mtAmXaygxGrv0lP2tdWgZ+7r15hmhm8LyysnTEZp6UOKJEwBrrktCYyvzTL/+3VQSISCZs2b5+s2vkiEqKqPXRHpPyI80+D8bI8Zh3Ob+AL36/XZOZUA9jMouM9jTm+KNxAmWhBItaRLLgl6JKPdVmHgm7I6GGOw0Omp78qjHF+zVG5ynqf0N8+8JkbDu4hMwtZw52gV7amZ0tdXQKu2Cmtcd0Dw0tFu6Ayd06fklDllZsdG6CKRpP36LRVUWN97s9Q1C8tgztikVSl644BjIALRPUDYliTKbkyv4pJigW/RxnubhJ85btFbHlqmJ1cb2605uKzfsZGsPgWhLj63dsuWWR03ddtgBu1r98fQriqyofu65SNZ/erdTvhOxdMcnX9kDonv1efV7gmAMhifQG1UcMKEYbvRnmj2b4mERHgoM6ZXY1NJvMy8LkoMIX9lphQTnLO/Ssn0NDkmnU=
 after_success: gulp coveralls
-
 cache:
   yarn: true
-  
