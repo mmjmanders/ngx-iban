@@ -16,9 +16,10 @@ before_script:
 script: gulp test:ci
 before_deploy:
 - yarn run start
+- gulp build:demo
 - cd dist
 deploy:
-  provider: npm
+- provider: npm
   skip_cleanup: true
   on:
     tags: true
@@ -26,10 +27,12 @@ deploy:
   email: mmjmanders@gmail.com
   api_key:
     secure: i5WHmsE6r1+0G2pwx2aSrNW3A4nzQYOko3weOLWxUhiH7ZBPRWLSAvtnir3WSiO9r4f0yQsbyuUA6S73qW6nBitz7iOflimWVuWi+6yJWRlKEDKtFC4RKbBUqZ+P8ZVGoMk6RizQqfZIZ7hK2n4vcNjRHp9ULCIIyY9ThYP+ihjfOZEHZ6H9mbjK6GudO5iJJwJefrxEl83wyMFA/c3Eitf4+mtAmXaygxGrv0lP2tdWgZ+7r15hmhm8LyysnTEZp6UOKJEwBrrktCYyvzTL/+3VQSISCZs2b5+s2vkiEqKqPXRHpPyI80+D8bI8Zh3Ob+AL36/XZOZUA9jMouM9jTm+KNxAmWhBItaRLLgl6JKPdVmHgm7I6GGOw0Omp78qjHF+zVG5ynqf0N8+8JkbDu4hMwtZw52gV7amZ0tdXQKu2Cmtcd0Dw0tFu6Ayd06fklDllZsdG6CKRpP36LRVUWN97s9Q1C8tgztikVSl644BjIALRPUDYliTKbkyv4pJigW/RxnubhJ85btFbHlqmJ1cb2605uKzfsZGsPgWhLj63dsuWWR03ddtgBu1r98fQriqyofu65SNZ/erdTvhOxdMcnX9kDonv1efV7gmAMhifQG1UcMKEYbvRnmj2b4mERHgoM6ZXY1NJvMy8LkoMIX9lphQTnLO/Ssn0NDkmnU=
+- provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
+  local_dir: $TRAVIS_BUILD_DIR/demo/dist/browser
 after_success: gulp coveralls
-after_script:
-- yarn run start
-- gulp build:demo
-- gulp pages
 cache:
   yarn: true
