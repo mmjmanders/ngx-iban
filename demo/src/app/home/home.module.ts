@@ -9,7 +9,7 @@ import { HomeComponent } from './home.component';
 @NgModule({
     imports: [
         CommonModule,
-        IbanModule.forRoot(),
+        IbanModule,
         HomeRoutingModule,
         FormsModule
     ],
