@@ -1,10 +1,10 @@
-import { CommonModule } from "@angular/common";
-import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { IbanDirective } from "./directive/iban.directive";
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { IbanDirective } from './directive/iban.directive';
 
 // Export module's public API
-export { IbanDirective } from "./directive/iban.directive";
+export { IbanDirective } from './directive/iban.directive';
 
 @NgModule({
   imports: [
