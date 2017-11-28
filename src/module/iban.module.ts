@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IbanDirective } from './directive/iban.directive';
 
@@ -14,4 +14,10 @@ export { IbanDirective } from './directive/iban.directive';
   exports: [IbanDirective],
   declarations: [IbanDirective]
 })
-export class IbanModule { }
+export class IbanModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: IbanModule
+    };
+  }
+}
