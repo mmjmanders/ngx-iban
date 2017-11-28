@@ -24,6 +24,7 @@
   "scripts": {
     "start": "gulp build",
     "test": " gulp test",
+    "demo": " gulp build:demo",
     "check-travis": " travis-status --repo=mmjmanders/ngx-iban --branch=master --fail-pending || echo 'Not yet passing'"
   },
   "dependencies": {

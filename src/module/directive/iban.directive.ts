@@ -7,6 +7,7 @@ import * as IBAN from 'iban';
     providers: [{provide: NG_VALIDATORS, useExisting: IbanDirective, multi: true}]
 })
 export class IbanDirective implements OnInit, OnDestroy, Validator {
+    // tslint:disable-next-line:no-input-rename
     @Input('ngxIban') public iban: string;
 
     ngOnInit(): void { }
@@ -14,6 +15,6 @@ export class IbanDirective implements OnInit, OnDestroy, Validator {
     ngOnDestroy(): void { }
 
     validate(c: AbstractControl): { [key: string]: any; } {
-        return (!this.iban || IBAN.isValid(this.iban)) ? null : {'iban': {value: this.iban}};
+        return (!c.value || IBAN.isValid(c.value)) ? null : {'iban': {value: c.value}};
     }
 }

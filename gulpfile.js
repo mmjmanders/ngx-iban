@@ -433,6 +433,75 @@ gulp.task('rollup-bundle', (cb) => {
 });
 
 /////////////////////////////////////////////////////////////////////////////
+// Demo Tasks
+/////////////////////////////////////////////////////////////////////////////
+const execDemoCmd = (args,opts) => {
+  if(fs.existsSync(`${config.demoDir}/node_modules`)){
+    return execCmd('ng', args, opts, `/${config.demoDir}`);
+  }
+  else{
+    gulpUtil.log(gulpUtil.colors.yellow(`No 'node_modules' found in '${config.demoDir}'. Installing dependencies for you...`));
+    return helpers.installDependencies({ cwd: `${config.demoDir}` })
+      .then(exitCode => exitCode === 0 ? execCmd('ng', args, opts, `/${config.demoDir}`) : Promise.reject())
+      .catch(e => {
+        gulpUtil.log(gulpUtil.colors.red(`ng command failed. See below for errors.\n`));
+        gulpUtil.log(gulpUtil.colors.red(e));
+        process.exit(1);
+      });
+  }
+};
+
+gulp.task('test:demo', () => {
+  return execDemoCmd('test --preserve-symlinks', { cwd: `${config.demoDir}`});
+});
+
+gulp.task('serve:demo', () => {
+  return execDemoCmd('serve --preserve-symlinks --aot', { cwd: `${config.demoDir}` });
+});
+
+gulp.task('serve:demo-hmr', () => {
+  return execDemoCmd('serve --hmr -e=hmr --preserve-symlinks --aot', { cwd: `${config.demoDir}` });
+});
+
+gulp.task('build:demo', () => {
+  return execDemoCmd(`build --preserve-symlinks --prod --aot --build-optimizer`, { cwd: `${config.demoDir}`});
+});
+
+gulp.task('serve:demo-ssr',['build:demo'], () => {
+  return execDemoCmd(`build --preserve-symlinks --prod --aot --build-optimizer --app ssr --output-hashing=none`, { cwd: `${config.demoDir}` })
+  .then(exitCode => {
+      if(exitCode === 0){
+        execCmd('webpack', '--config webpack.server.config.js --progress --colors', { cwd: `${config.demoDir}` }, `/${config.demoDir}`)
+        .then(exitCode => exitCode === 0 ? execExternalCmd('node', 'dist/server.js', { cwd: `${config.demoDir}` }, `/${config.demoDir}`): Promise.reject(1));
+      } else{
+        Promise.reject(1);
+      }
+    }
+  );
+});
+
+gulp.task('build:demo-ssr',['build:demo'], () => {
+  return execDemoCmd(`build --preserve-symlinks --prod --aot --build-optimizer --app ssr --output-hashing=none`, { cwd: `${config.demoDir}` })
+  .then(exitCode => {
+      if(exitCode === 0){
+        execCmd('webpack', '--config webpack.server.config.js --progress --colors', { cwd: `${config.demoDir}` }, `/${config.demoDir}`)
+        .then(exitCode => exitCode === 0 ? execExternalCmd('node', 'dist/prerender.js', { cwd: `${config.demoDir}` }, `/${config.demoDir}`): Promise.reject(1));
+      } else{
+        Promise.reject(1);
+      }
+    }
+  );
+});
+
+gulp.task('push:demo', () => {
+  return execCmd('ngh',`--dir ${config.outputDemoDir} --message="chore(demo): :rocket: deploy new version"`);
+});
+
+gulp.task('deploy:demo', (cb) => {
+  runSequence('build:demo', 'push:demo', cb);
+});
+
+/////////////////////////////////////////////////////////////////////////////
 // Test Tasks
 /////////////////////////////////////////////////////////////////////////////
 gulp.task('test', (cb) => {
