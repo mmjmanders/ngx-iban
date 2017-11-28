@@ -26,6 +26,8 @@ const gulpCoveralls = require('gulp-coveralls');
 /** To order tasks */
 const runSequence = require('run-sequence');
 
+const ghPages = require('gulp-gh-pages');
+
 /** To compile & bundle the library with Angular & Rollup */
 const ngc = (args) => new Promise((resolve, reject)=>{// Promisify version of the ngc compiler
   let exitCode = require('@angular/compiler-cli/src/main').main(args);
@@ -626,6 +628,11 @@ gulp.task('release', (cb) => {
         cb(error);
       });
   }
+});
+
+gulp.task('pages', (cb) => {
+  return gulp.src('./demo/dist/browser/**/*')
+    .pipe(ghPages());
 });
 
 

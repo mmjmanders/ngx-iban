@@ -57,6 +57,7 @@
     "gulp-conventional-changelog": "^1.1.6",
     "gulp-coveralls": "^0.1.4",
     "gulp-file": "^0.3.0",
+    "gulp-gh-pages": "^0.5.4",
     "gulp-git": "^2.4.2",
     "gulp-hub": "^0.8.0",
     "gulp-inline-ng2-template": "^4.0.0",
