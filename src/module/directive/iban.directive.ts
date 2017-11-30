@@ -1,4 +1,4 @@
-import { Directive, Input, OnDestroy, OnInit } from '@angular/core';
+import { Directive, OnDestroy, OnInit } from '@angular/core';
 import { NG_VALIDATORS, Validator, AbstractControl } from '@angular/forms';
 import * as IBAN from 'iban';
 
@@ -7,9 +7,6 @@ import * as IBAN from 'iban';
     providers: [{provide: NG_VALIDATORS, useExisting: IbanDirective, multi: true}]
 })
 export class IbanDirective implements OnInit, OnDestroy, Validator {
-    // tslint:disable-next-line:no-input-rename
-    @Input('ngxIban') public iban: string;
-
     ngOnInit(): void { }
 
     ngOnDestroy(): void { }

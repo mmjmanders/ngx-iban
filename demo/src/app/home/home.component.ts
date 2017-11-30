@@ -8,7 +8,8 @@ import { Title }     from '@angular/platform-browser';
 })
 export class HomeComponent implements OnInit {
 
-  public iban: string;
+  optional: string;
+  required: string;
 
   constructor(private titleService:Title) { }
 
