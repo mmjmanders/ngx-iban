@@ -70,7 +70,7 @@ export class OtherModule {
 ## Usage
 
 ```html
-<input type="text" [ngxIban]="iban" [(ngModel)]="iban">
+<input type="text" ngxIban [(ngModel)]="iban">
 ```
 
 
