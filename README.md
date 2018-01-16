@@ -22,7 +22,13 @@ Install above dependencies via *npm*.
 
 Now install `ngx-iban` via:
 ```shell
-npm install --save ngx-iban
+npm install --save ngx-iban iban
+```
+
+or
+
+```shell
+yarn add ngx-iban iban
 ```
 
 ---
