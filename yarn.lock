@@ -3253,9 +3253,9 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
 
-iban@0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/iban/-/iban-0.0.8.tgz#4f23d23ad504a319a3a9f76ec90907bb413cae18"
+iban@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/iban/-/iban-0.0.10.tgz#1a6aeb08e85cd98d5651c5e0c08c5c0de81ba78d"
 
 iconv-lite@0.4.19:
   version "0.4.19"
