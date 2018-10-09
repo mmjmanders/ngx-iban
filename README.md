@@ -45,25 +45,6 @@ map: {
 Once installed you need to import the main module:
 ```js
 import { IbanModule } from 'ngx-iban';
-```
-The only remaining part is to list the imported module in your application module. The exact method will be slightly
-different for the root (top-level) module for which you should end up with the code similar to (notice `IbanModule.forRoot()`):
-```js
-import { IbanModule } from 'ngx-iban';
-
-@NgModule({
-  declarations: [AppComponent, ...],
-  imports: [IbanModule.forRoot(), ...],  
-  bootstrap: [AppComponent]
-})
-export class AppModule {
-}
-```
-
-Other modules in your application can simply import `IbanModule `:
-
-```js
-import { IbanModule } from 'ngx-iban';
 
 @NgModule({
   declarations: [OtherComponent, ...],
