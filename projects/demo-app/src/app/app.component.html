@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="container">
+    <a [routerLink]="['']" class="navbar-brand">ngx-iban</a>
+    <div class="collapse navbar-collapse">
+      <div class="navbar-nav">
+        <a
+          [routerLink]="['installation']"
+          class="nav-item nav-link"
+          routerLinkActive="active"
+          >Installation and usage</a
+        >
+        <a
+          [routerLink]="['demo']"
+          class="nav-item nav-link"
+          routerLinkActive="active"
+          >Demo</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main role="main">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+
+<a href="https://github.com/mmjmanders/ngx-iban"
+  ><img
+    alt="Fork me on GitHub"
+    class="fork-me"
+    data-recalc-dims="1"
+    height="149"
+    src="https://github.blog/wp-content/uploads/2008/12/forkme_left_white_ffffff.png?resize=149%2C149"
+    title="Fork me on GitHub"
+    width="149"
+/></a>
