@@ -6,7 +6,7 @@ on:
       - '**'
 
 jobs:
-  deploy:
+  publish-module:
     runs-on: ubuntu-20.04
     steps:
       - name: Check out repository

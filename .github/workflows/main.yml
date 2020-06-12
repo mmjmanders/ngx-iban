@@ -3,7 +3,7 @@ name: main
 on: push
 
 jobs:
-  test-and-deploy:
+  test:
     runs-on: ubuntu-20.04
     steps:
       - name: Check out repository
@@ -16,10 +16,21 @@ jobs:
         run: npm ci
       - name: Test
         run: npm run test:ci
+  deploy-pages:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - name: Install dependencies
+        run: npm ci
       - name: Build module
         run: npx ng build ngx-iban --prod
       - name: Build demo page
-        run: npx ng build demo-app --prod
+        run: npx ng build demo-app --base-href=/ngx-iban/ --prod
       - name: Deploy GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

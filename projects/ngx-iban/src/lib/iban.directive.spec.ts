@@ -26,6 +26,21 @@ class TemplateDrivenFormComponent {
 
 @Component({
   template: `
+    <form>
+      <input
+        ngxIban="BE"
+        [(ngModel)]="iban"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </form>
+  `
+})
+class TemplateDrivenFormComponentWithCountryCode {
+  iban: string;
+}
+
+@Component({
+  template: `
     <form [formGroup]="form">
       <input id="iban" [formControl]="iban" />
     </form>
@@ -37,6 +52,25 @@ class ReactiveFormComponent {
 
   constructor() {
     this.iban = new FormControl("", ibanValidator());
+    this.form = new FormGroup({
+      iban: this.iban
+    });
+  }
+}
+
+@Component({
+  template: `
+    <form [formGroup]="form">
+      <input id="iban" [formControl]="iban" />
+    </form>
+  `
+})
+class ReactiveFormComponentWithCountryCode {
+  form: FormGroup;
+  iban: FormControl;
+
+  constructor() {
+    this.iban = new FormControl("", ibanValidator("BE"));
     this.form = new FormGroup({
       iban: this.iban
     });
@@ -67,66 +101,137 @@ describe("IbanDirective", () => {
   });
 
   describe("Template-driven form tests", () => {
-    let fixture: ComponentFixture<TemplateDrivenFormComponent>;
-    let component: TemplateDrivenFormComponent;
+    describe("Standard", () => {
+      let fixture: ComponentFixture<TemplateDrivenFormComponent>;
+      let component: TemplateDrivenFormComponent;
 
-    beforeEach(() => {
-      fixture = TestBed.configureTestingModule({
-        imports: [FormsModule],
-        declarations: [IbanDirective, TemplateDrivenFormComponent]
-      }).createComponent(TemplateDrivenFormComponent);
-      component = fixture.componentInstance;
-      fixture.detectChanges();
+      beforeEach(() => {
+        fixture = TestBed.configureTestingModule({
+          imports: [FormsModule],
+          declarations: [IbanDirective, TemplateDrivenFormComponent]
+        }).createComponent(TemplateDrivenFormComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+      });
+
+      it("should yield valid for valid IBAN", () => {
+        const input = fixture.debugElement.query(By.directive(IbanDirective))
+          .nativeElement as HTMLInputElement;
+        input.value = "NL42TEST0519098218";
+        input.dispatchEvent(new Event("input"));
+        fixture.detectChanges();
+        expect(input.classList).toContain("ng-valid", "Not a valid IBAN");
+      });
+
+      it("should yield invalid for invalid IBAN", () => {
+        const input = fixture.debugElement.query(By.directive(IbanDirective))
+          .nativeElement as HTMLInputElement;
+        input.value = "NL42TEST0519098217";
+        input.dispatchEvent(new Event("input"));
+        fixture.detectChanges();
+        expect(input.classList).toContain("ng-invalid", "A valid IBAN");
+      });
     });
 
-    it("should yield valid for valid IBAN", () => {
-      const input = fixture.debugElement.query(By.directive(IbanDirective))
-        .nativeElement as HTMLInputElement;
-      input.value = "NL42TEST0519098218";
-      input.dispatchEvent(new Event("input"));
-      fixture.detectChanges();
-      expect(input.classList).toContain("ng-valid", "Not a valid IBAN");
-    });
+    describe("With ISO 3166-1 alpha-2 country code", () => {
+      let fixture: ComponentFixture<TemplateDrivenFormComponentWithCountryCode>;
+      let component: TemplateDrivenFormComponentWithCountryCode;
 
-    it("should yield invalid for invalid IBAN", () => {
-      const input = fixture.debugElement.query(By.directive(IbanDirective))
-        .nativeElement as HTMLInputElement;
-      input.value = "NL42TEST0519098217";
-      input.dispatchEvent(new Event("input"));
-      fixture.detectChanges();
-      expect(input.classList).toContain("ng-invalid", "A valid IBAN");
+      beforeEach(() => {
+        fixture = TestBed.configureTestingModule({
+          imports: [FormsModule],
+          declarations: [
+            IbanDirective,
+            TemplateDrivenFormComponentWithCountryCode
+          ]
+        }).createComponent(TemplateDrivenFormComponentWithCountryCode);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+      });
+
+      it("should yield valid for valid IBAN", () => {
+        const input = fixture.debugElement.query(By.directive(IbanDirective))
+          .nativeElement as HTMLInputElement;
+        input.value = "BE71096123456769";
+        input.dispatchEvent(new Event("input"));
+        fixture.detectChanges();
+        expect(input.classList).toContain("ng-valid", "Not a valid IBAN");
+      });
+
+      it("should yield invalid for invalid IBAN", () => {
+        const input = fixture.debugElement.query(By.directive(IbanDirective))
+          .nativeElement as HTMLInputElement;
+        input.value = "FR7630006000011234567890189";
+        input.dispatchEvent(new Event("input"));
+        fixture.detectChanges();
+        expect(input.classList).toContain("ng-invalid", "A valid IBAN");
+      });
     });
   });
 
   describe("Reactive form tests", () => {
-    let fixture: ComponentFixture<ReactiveFormComponent>;
-    let component: ReactiveFormComponent;
+    describe("Standard", () => {
+      let fixture: ComponentFixture<ReactiveFormComponent>;
+      let component: ReactiveFormComponent;
 
-    beforeEach(() => {
-      fixture = TestBed.configureTestingModule({
-        imports: [ReactiveFormsModule],
-        declarations: [IbanDirective, ReactiveFormComponent]
-      }).createComponent(ReactiveFormComponent);
-      component = fixture.componentInstance;
-      fixture.detectChanges();
+      beforeEach(() => {
+        fixture = TestBed.configureTestingModule({
+          imports: [ReactiveFormsModule],
+          declarations: [IbanDirective, ReactiveFormComponent]
+        }).createComponent(ReactiveFormComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+      });
+
+      it("should yield valid for valid IBAN", () => {
+        const input = fixture.debugElement.query(By.css("#iban"))
+          .nativeElement as HTMLInputElement;
+        input.value = "NL42TEST0519098218";
+        input.dispatchEvent(new Event("input"));
+        fixture.detectChanges();
+        expect(component.iban.valid).toEqual(true, "Not a valid IBAN");
+      });
+
+      it("should yield invalid for invalid IBAN", () => {
+        const input = fixture.debugElement.query(By.css("#iban"))
+          .nativeElement as HTMLInputElement;
+        input.value = "NL42TEST0519098217";
+        input.dispatchEvent(new Event("input"));
+        fixture.detectChanges();
+        expect(component.iban.valid).toEqual(false, "A valid IBAN");
+      });
     });
 
-    it("should yield valid for valid IBAN", () => {
-      const input = fixture.debugElement.query(By.css("#iban"))
-        .nativeElement as HTMLInputElement;
-      input.value = "NL42TEST0519098218";
-      input.dispatchEvent(new Event("input"));
-      fixture.detectChanges();
-      expect(component.iban.valid).toEqual(true, "Not a valid IBAN");
-    });
+    describe("With ISO 3166-1 alpha-2 country code", () => {
+      let fixture: ComponentFixture<ReactiveFormComponentWithCountryCode>;
+      let component: ReactiveFormComponentWithCountryCode;
 
-    it("should yield invalid for invalid IBAN", () => {
-      const input = fixture.debugElement.query(By.css("#iban"))
-        .nativeElement as HTMLInputElement;
-      input.value = "NL42TEST0519098217";
-      input.dispatchEvent(new Event("input"));
-      fixture.detectChanges();
-      expect(component.iban.valid).toEqual(false, "A valid IBAN");
+      beforeEach(() => {
+        fixture = TestBed.configureTestingModule({
+          imports: [ReactiveFormsModule],
+          declarations: [IbanDirective, ReactiveFormComponentWithCountryCode]
+        }).createComponent(ReactiveFormComponentWithCountryCode);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+      });
+
+      it("should yield valid for valid IBAN", () => {
+        const input = fixture.debugElement.query(By.css("#iban"))
+          .nativeElement as HTMLInputElement;
+        input.value = "BE71096123456769";
+        input.dispatchEvent(new Event("input"));
+        fixture.detectChanges();
+        expect(component.iban.valid).toEqual(true, "Not a valid IBAN");
+      });
+
+      it("should yield invalid for invalid IBAN", () => {
+        const input = fixture.debugElement.query(By.css("#iban"))
+          .nativeElement as HTMLInputElement;
+        input.value = "FR7630006000011234567890189";
+        input.dispatchEvent(new Event("input"));
+        fixture.detectChanges();
+        expect(component.iban.valid).toEqual(false, "A valid IBAN");
+      });
     });
   });
 });

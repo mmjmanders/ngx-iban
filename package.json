@@ -21,6 +21,7 @@
     "@angular/router": "~9.1.11",
     "bootstrap": "^4.5.0",
     "highlight.js": "^10.0.3",
+    "i18n-iso-countries": "^6.0.0",
     "iban": "0.0.14",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",

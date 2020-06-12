@@ -31,6 +31,9 @@ export class AppModule {}
 ```html
 <form>
   <input type="text" [(ngModel)]="iban" ngxIban />
+
+  <!-- Or with an ISO 3166-1 alpha-2 country code -->
+  <input type="text" [(ngModel)]="iban" ngxIban="NL" />
 </form>
 ```
 
@@ -48,6 +51,9 @@ import { ibanValidator } from "ngx-iban";
 })
 export class MyComponent {
   iban = new FormControl("", ibanValidator());
+
+  // Or with an ISO 3166-1 alpha-2 country code
+  iban = new FormControl("", ibanValidator("NL"));
 }
 ```
 
