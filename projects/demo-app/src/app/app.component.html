@@ -1,19 +1,22 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark">
   <div class="container">
-    <a [routerLink]="['']" class="navbar-brand">ngx-iban</a>
+    <a [routerLink]="['']" class="navbar-brand">
+      <fa-icon [icon]="faPiggyBank"></fa-icon>
+      ngx-iban</a
+    >
     <div class="collapse navbar-collapse">
       <div class="navbar-nav">
-        <a
-          [routerLink]="['installation']"
-          class="nav-item nav-link"
-          routerLinkActive="active"
-          >Installation and usage</a
-        >
         <a
           [routerLink]="['demo']"
           class="nav-item nav-link"
           routerLinkActive="active"
           >Demo</a
+        >
+        <a
+          [routerLink]="['installation']"
+          class="nav-item nav-link"
+          routerLinkActive="active"
+          >Installation and usage</a
         >
       </div>
     </div>

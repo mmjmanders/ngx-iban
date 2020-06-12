@@ -6,16 +6,16 @@ import { DemoComponent } from "./demo/demo.component";
 
 const routes: Routes = [
   {
-    path: "installation",
-    component: InstallationComponent
-  },
-  {
     path: "demo",
     component: DemoComponent
   },
   {
+    path: "installation",
+    component: InstallationComponent
+  },
+  {
     path: "",
-    redirectTo: "/installation",
+    redirectTo: "/demo",
     pathMatch: "full"
   }
 ];

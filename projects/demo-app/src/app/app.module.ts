@@ -8,6 +8,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { InstallationComponent } from "./installation/installation.component";
 import { DemoComponent } from "./demo/demo.component";
 import { HighlightCodeDirective } from "./highlight-code.directive";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HighlightCodeDirective } from "./highlight-code.directive";
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
     NgxIbanModule
   ],
   providers: [],

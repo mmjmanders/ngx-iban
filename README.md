@@ -1,5 +1,7 @@
 # ngx-iban
 
+You can see a live demo of the module [here](https://mmjmanders.github.io/ngx-iban/).
+
 ## Installation
 
 You can install `ngx-iban` via:
@@ -30,10 +32,10 @@ export class AppModule {}
 
 ```html
 <form>
-  <input type="text" [(ngModel)]="iban" ngxIban />
+  <input type="text" [(ngModel)]="iban" ngxIban>
 
   <!-- Or with an ISO 3166-1 alpha-2 country code -->
-  <input type="text" [(ngModel)]="iban" ngxIban="NL" />
+  <input type="text" [(ngModel)]="iban" ngxIban="NL">
 </form>
 ```
 
@@ -59,6 +61,6 @@ export class MyComponent {
 
 ```html
 <form>
-  <input type="text" [formControl]="iban" />
+  <input type="text" [formControl]="iban">
 </form>
 ```

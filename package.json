@@ -19,6 +19,9 @@
     "@angular/platform-browser": "~9.1.11",
     "@angular/platform-browser-dynamic": "~9.1.11",
     "@angular/router": "~9.1.11",
+    "@fortawesome/angular-fontawesome": "~0.6.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "bootstrap": "^4.5.0",
     "highlight.js": "^10.0.3",
     "i18n-iso-countries": "^6.0.0",
@@ -62,6 +65,6 @@
     }
   },
   "lint-staged": {
-    "**/*.{json,md,scss,ts}": "prettier --write"
+    "**/*.{json,scss,ts}": "prettier --write"
   }
 }
