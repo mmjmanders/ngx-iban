@@ -5,7 +5,7 @@ import {
   FormsModule,
   ReactiveFormsModule
 } from "@angular/forms";
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { By } from "@angular/platform-browser";
 
@@ -28,7 +28,7 @@ class TemplateDrivenFormComponent {
   template: `
     <form>
       <input
-        ngxIban="BE"
+        [ngxIban]="language"
         [(ngModel)]="iban"
         [ngModelOptions]="{ standalone: true }"
       />
@@ -37,6 +37,7 @@ class TemplateDrivenFormComponent {
 })
 class TemplateDrivenFormComponentWithCountryCode {
   iban: string;
+  language: string = "BE";
 }
 
 @Component({
@@ -65,14 +66,23 @@ class ReactiveFormComponent {
     </form>
   `
 })
-class ReactiveFormComponentWithCountryCode {
+class ReactiveFormComponentWithCountryCode implements OnInit {
   form: FormGroup;
   iban: FormControl;
+  language: FormControl;
 
   constructor() {
     this.iban = new FormControl("", ibanValidator("BE"));
+    this.language = new FormControl("BE");
     this.form = new FormGroup({
       iban: this.iban
+    });
+  }
+
+  ngOnInit() {
+    this.language.valueChanges.subscribe((language: string) => {
+      this.iban.setValidators(ibanValidator(language));
+      this.iban.updateValueAndValidity();
     });
   }
 }
@@ -166,6 +176,34 @@ describe("IbanDirective", () => {
         fixture.detectChanges();
         expect(input.classList).toContain("ng-invalid", "A valid IBAN");
       });
+
+      it("should go from valid to invalid when country code changes", () => {
+        const input = fixture.debugElement.query(By.directive(IbanDirective))
+          .nativeElement as HTMLInputElement;
+        input.value = "BE71096123456769";
+        input.dispatchEvent(new Event("input"));
+        fixture.detectChanges();
+        expect(input.classList).toContain("ng-valid", "Not a valid IBAN");
+
+        component.language = "NL";
+        input.dispatchEvent(new Event("input"));
+        fixture.detectChanges();
+        expect(input.classList).toContain("ng-invalid", "A valid IBAN");
+      });
+
+      it("should go from invalid to valid when country code changes", () => {
+        const input = fixture.debugElement.query(By.directive(IbanDirective))
+          .nativeElement as HTMLInputElement;
+        input.value = "FR7630006000011234567890189";
+        input.dispatchEvent(new Event("input"));
+        fixture.detectChanges();
+        expect(input.classList).toContain("ng-invalid", "A valid IBAN");
+
+        component.language = "FR";
+        input.dispatchEvent(new Event("input"));
+        fixture.detectChanges();
+        expect(input.classList).toContain("ng-valid", "Not a valid IBAN");
+      });
     });
   });
 
@@ -231,6 +269,34 @@ describe("IbanDirective", () => {
         input.dispatchEvent(new Event("input"));
         fixture.detectChanges();
         expect(component.iban.valid).toEqual(false, "A valid IBAN");
+      });
+
+      it("should go from valid to invalid when country code changes", () => {
+        const input = fixture.debugElement.query(By.css("#iban"))
+          .nativeElement as HTMLInputElement;
+        input.value = "BE71096123456769";
+        input.dispatchEvent(new Event("input"));
+        fixture.detectChanges();
+        expect(component.iban.valid).toEqual(true, "Not a valid IBAN");
+
+        component.language.setValue("NL");
+        input.dispatchEvent(new Event("input"));
+        fixture.detectChanges();
+        expect(component.iban.valid).toEqual(false, "A valid IBAN");
+      });
+
+      it("should go from invalid to valid when country code changes", () => {
+        const input = fixture.debugElement.query(By.css("#iban"))
+          .nativeElement as HTMLInputElement;
+        input.value = "FR7630006000011234567890189";
+        input.dispatchEvent(new Event("input"));
+        fixture.detectChanges();
+        expect(component.iban.valid).toEqual(false, "A valid IBAN");
+
+        component.language.setValue("FR");
+        input.dispatchEvent(new Event("input"));
+        fixture.detectChanges();
+        expect(component.iban.valid).toEqual(true, "Not a valid IBAN");
       });
     });
   });
