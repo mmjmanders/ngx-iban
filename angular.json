@@ -26,7 +26,8 @@
           "options": {
             "main": "projects/ngx-iban/src/test.ts",
             "tsConfig": "projects/ngx-iban/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-iban/karma.conf.js"
+            "karmaConfig": "projects/ngx-iban/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {
