@@ -1,5 +1,13 @@
 # ngx-iban
 
+This Angular (2+) module consists of two parts:
+
+1. a directive to use in template-driven forms;
+2. a validator to use in reactive forms.
+
+An optional ISO 3166-1 alpha-2 country code can be passed as a parameter to both the directive and the validator.
+When given, validation also checks if the entered IBAN is valid for that specific country.
+
 You can see a live demo of the module [here](https://mmjmanders.github.io/ngx-iban/).
 
 ## Installation
