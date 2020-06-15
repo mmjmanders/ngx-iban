@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test --browsers=Chrome",
+    "test": "ng test",
     "test:ci": "ng test --browsers=ChromeNoSandbox --watch=false",
     "lint": "ng lint"
   },
