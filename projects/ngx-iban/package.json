@@ -1,6 +1,7 @@
 {
   "name": "ngx-iban",
-  "version": "3.1.0",
+  "version": "3.2.0",
+  "schematics": "./schematics/collection.json",
   "peerDependencies": {
     "@angular/common": "^9.1.11",
     "@angular/core": "^9.1.11",
@@ -12,6 +13,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/mmjmanders/ngx-iban.git"
+  },
+  "scripts": {
+    "build:schematics": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:collection": "cp schematics/collection.json ../../dist/ngx-iban/schematics/collection.json",
+    "postbuild:schematics": "npm run copy:collection"
   },
   "license": "MIT",
   "bugs": {

@@ -20,6 +20,9 @@ jobs:
         run: npm ci
       - name: Build module
         run: npx ng build ngx-iban --prod
+      - name: Build schematics
+        run: npm run build:schematics
+        working-directory: ./projects/ngx-iban
       - name: Publish package
         run: npm publish ./dist/ngx-iban
         env:
