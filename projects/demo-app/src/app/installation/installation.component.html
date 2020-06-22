@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col">
+    <section>
+      <h1>Installation and usage</h1>
+      This page described the installation and usage of the
+      <code>ngx-iban</code> component.
+    </section>
+    <section>
+      <h2>Installation</h2>
+      You can install <code>ngx-iban</code> via:
+      <pre><code class="language-bash" highlight>npm install iban ngx-iban --save</code></pre>
+      or
+      <pre><code class="language-bash" highlight>yarn add iban ngx-iban</code></pre>
+    </section>
+    <h2>Usage</h2>
+    <pre><code class="language-typescript" highlight>import {{'{'}} NgModule } from "@angular/core";
+import {{'{'}} NgxIbanModule } from "ngx-iban";
+
+@NgModule({{'{'}}
+  imports: [NgxIbanModule]
+})
+export class AppModule {{'{'}}}</code></pre>
+    Then in your component you can use the validation in a template-driven form:
+    <pre><code class="language-html" highlight>&lt;form&gt;
+  &lt;input type="text" [(ngModel)]="iban" ngxIban&gt;
+
+  &lt;!-- Or with an ISO 3166-1 alpha-2 country code --&gt;
+  &lt;input type="text" [(ngModel)]="iban" ngxIban="NL"&gt;
+&lt;/form&gt;</code></pre>
+    Or in a reactive form:
+    <pre><code class="language-typescript" highlight>import {{'{'}} Component } from "@angular/core";
+import {{'{'}} FormControl } from "@angular/forms";
+import {{'{'}} ibanValidator } from "ngx-iban";
+
+@Component({{'{'}}
+  selector: "my-component",
+  styleUrls: ["./my.component.scss"],
+  templateUrl: "./my.component.html"
+})
+export class MyComponent {{'{'}}
+  iban = new FormControl("", ibanValidator());
+
+  // Or with an ISO 3166-1 alpha-2 country code
+  iban = new FormControl("", ibanValidator("NL"));
+}</code></pre>
+    <pre><code class="language-html" highlight>&lt;form&gt;
+  &lt;input type="text" [formControl]="iban"&gt;
+&lt;/form&gt;</code></pre>
+  </div>
+</div>

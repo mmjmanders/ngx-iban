@@ -1,0 +1,25 @@
+@import "scss/fonts";
+@import "scss/variables";
+@import "~highlight.js/scss/github";
+@import "~bootstrap/scss/bootstrap";
+
+main {
+  @extend .pt-3, .pb-3;
+}
+
+section {
+  @extend .pt-4, .pb-4;
+}
+
+pre {
+  @extend .mt-3;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @extend .border-bottom;
+}
