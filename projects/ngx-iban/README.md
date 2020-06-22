@@ -1,6 +1,6 @@
 # ngx-iban
 
-This Angular 7 module consists of two parts:
+This Angular 8 module consists of two parts:
 
 1. a directive to use in template-driven forms;
 2. a validator to use in reactive forms.
