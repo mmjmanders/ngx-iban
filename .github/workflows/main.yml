@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build module
-        run: npx ng build ngx-iban
+        run: npx ng build ngx-iban --prod
       - name: Build demo page
         run: npx ng build demo-app --base-href=/ngx-iban/ --prod
       - name: Deploy GitHub Pages
