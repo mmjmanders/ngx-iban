@@ -101,12 +101,12 @@ describe("IbanDirective", () => {
 
     it("should yield valid for valid IBAN", () => {
       const input = new FormControl("NL42TEST0519098218");
-      expect(directive.validate(input)).toBeNull("Not a valid IBAN");
+      expect(directive.validate(input)).toBeNull();
     });
 
     it("should yield invalid for invalid IBAN", () => {
       const input = new FormControl("NL42TEST0519098217");
-      expect(directive.validate(input)).toBeTruthy("A valid IBAN");
+      expect(directive.validate(input)).toBeTruthy();
     });
   });
 
@@ -130,7 +130,7 @@ describe("IbanDirective", () => {
         input.value = "NL42TEST0519098218";
         input.dispatchEvent(new Event("input"));
         fixture.detectChanges();
-        expect(input.classList).toContain("ng-valid", "Not a valid IBAN");
+        expect(input.classList).toContain("ng-valid");
       });
 
       it("should yield invalid for invalid IBAN", () => {
@@ -139,7 +139,7 @@ describe("IbanDirective", () => {
         input.value = "NL42TEST0519098217";
         input.dispatchEvent(new Event("input"));
         fixture.detectChanges();
-        expect(input.classList).toContain("ng-invalid", "A valid IBAN");
+        expect(input.classList).toContain("ng-invalid");
       });
     });
 
@@ -165,7 +165,7 @@ describe("IbanDirective", () => {
         input.value = "BE71096123456769";
         input.dispatchEvent(new Event("input"));
         fixture.detectChanges();
-        expect(input.classList).toContain("ng-valid", "Not a valid IBAN");
+        expect(input.classList).toContain("ng-valid");
       });
 
       it("should yield invalid for invalid IBAN", () => {
@@ -174,7 +174,7 @@ describe("IbanDirective", () => {
         input.value = "FR7630006000011234567890189";
         input.dispatchEvent(new Event("input"));
         fixture.detectChanges();
-        expect(input.classList).toContain("ng-invalid", "A valid IBAN");
+        expect(input.classList).toContain("ng-invalid");
       });
 
       it("should go from valid to invalid when country code changes", () => {
@@ -183,12 +183,12 @@ describe("IbanDirective", () => {
         input.value = "BE71096123456769";
         input.dispatchEvent(new Event("input"));
         fixture.detectChanges();
-        expect(input.classList).toContain("ng-valid", "Not a valid IBAN");
+        expect(input.classList).toContain("ng-valid");
 
         component.language = "NL";
         input.dispatchEvent(new Event("input"));
         fixture.detectChanges();
-        expect(input.classList).toContain("ng-invalid", "A valid IBAN");
+        expect(input.classList).toContain("ng-invalid");
       });
 
       it("should go from invalid to valid when country code changes", () => {
@@ -197,12 +197,12 @@ describe("IbanDirective", () => {
         input.value = "FR7630006000011234567890189";
         input.dispatchEvent(new Event("input"));
         fixture.detectChanges();
-        expect(input.classList).toContain("ng-invalid", "A valid IBAN");
+        expect(input.classList).toContain("ng-invalid");
 
         component.language = "FR";
         input.dispatchEvent(new Event("input"));
         fixture.detectChanges();
-        expect(input.classList).toContain("ng-valid", "Not a valid IBAN");
+        expect(input.classList).toContain("ng-valid");
       });
     });
   });
@@ -227,7 +227,7 @@ describe("IbanDirective", () => {
         input.value = "NL42TEST0519098218";
         input.dispatchEvent(new Event("input"));
         fixture.detectChanges();
-        expect(component.iban.valid).toEqual(true, "Not a valid IBAN");
+        expect(component.iban.valid).toEqual(true);
       });
 
       it("should yield invalid for invalid IBAN", () => {
@@ -236,7 +236,7 @@ describe("IbanDirective", () => {
         input.value = "NL42TEST0519098217";
         input.dispatchEvent(new Event("input"));
         fixture.detectChanges();
-        expect(component.iban.valid).toEqual(false, "A valid IBAN");
+        expect(component.iban.valid).toEqual(false);
       });
     });
 
@@ -259,7 +259,7 @@ describe("IbanDirective", () => {
         input.value = "BE71096123456769";
         input.dispatchEvent(new Event("input"));
         fixture.detectChanges();
-        expect(component.iban.valid).toEqual(true, "Not a valid IBAN");
+        expect(component.iban.valid).toEqual(true);
       });
 
       it("should yield invalid for invalid IBAN", () => {
@@ -268,7 +268,7 @@ describe("IbanDirective", () => {
         input.value = "FR7630006000011234567890189";
         input.dispatchEvent(new Event("input"));
         fixture.detectChanges();
-        expect(component.iban.valid).toEqual(false, "A valid IBAN");
+        expect(component.iban.valid).toEqual(false);
       });
 
       it("should go from valid to invalid when country code changes", () => {
@@ -277,12 +277,12 @@ describe("IbanDirective", () => {
         input.value = "BE71096123456769";
         input.dispatchEvent(new Event("input"));
         fixture.detectChanges();
-        expect(component.iban.valid).toEqual(true, "Not a valid IBAN");
+        expect(component.iban.valid).toEqual(true);
 
         component.language.setValue("NL");
         input.dispatchEvent(new Event("input"));
         fixture.detectChanges();
-        expect(component.iban.valid).toEqual(false, "A valid IBAN");
+        expect(component.iban.valid).toEqual(false);
       });
 
       it("should go from invalid to valid when country code changes", () => {
@@ -291,12 +291,12 @@ describe("IbanDirective", () => {
         input.value = "FR7630006000011234567890189";
         input.dispatchEvent(new Event("input"));
         fixture.detectChanges();
-        expect(component.iban.valid).toEqual(false, "A valid IBAN");
+        expect(component.iban.valid).toEqual(false);
 
         component.language.setValue("FR");
         input.dispatchEvent(new Event("input"));
         fixture.detectChanges();
-        expect(component.iban.valid).toEqual(true, "Not a valid IBAN");
+        expect(component.iban.valid).toEqual(true);
       });
     });
   });
