@@ -16,15 +16,6 @@
             "project": "projects/ngx-iban/ng-package.json"
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/ngx-iban/src/test.ts",
-            "tsConfig": "projects/ngx-iban/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-iban/karma.conf.js",
-            "codeCoverage": true
-          }
-        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
