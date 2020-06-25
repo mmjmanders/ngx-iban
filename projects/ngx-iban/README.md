@@ -1,9 +1,10 @@
 # ngx-iban
 
-This Angular 8 module consists of two parts:
+This Angular 8 module consists of three parts:
 
 1. a directive to use in template-driven forms;
-2. a validator to use in reactive forms.
+2. a validator to use in reactive forms;
+3. a pipe to transform a string to the IBAN format (groups of 4 characters)
 
 An optional ISO 3166-1 alpha-2 country code can be passed as a parameter to both the directive and the validator.
 When given, validation also checks if the entered IBAN is valid for that specific country.
@@ -71,4 +72,16 @@ export class MyComponent {
 <form>
   <input type="text" [formControl]="iban">
 </form>
+```
+
+### Pipe
+
+```html
+<span>{{ 'GB82WEST12345698765432' | iban }}</span>
+```
+
+becomes
+
+```html
+<span>GB82 WEST 1234 5698 7654 32</span>
 ```
