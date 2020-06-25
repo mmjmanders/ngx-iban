@@ -12,9 +12,7 @@ export function ibanValidator(countryCode?: string): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     if (countryCode && control.value) {
       return /^[A-Z]{2}$/i.test(countryCode) &&
-        new RegExp(`^${countryCode}[0-9]{2}[A-Z0-9]{0,30}$`, "i").test(
-          control.value.replace(/\s/g, "")
-        ) &&
+        new RegExp(`^${countryCode}.*$`, "i").test(control.value) &&
         IBAN.isValid(control.value)
         ? null
         : { iban: { value: control.value } };

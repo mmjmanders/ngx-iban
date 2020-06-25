@@ -12,23 +12,24 @@
       or
       <pre><code class="language-bash" highlight>yarn add iban ngx-iban</code></pre>
     </section>
-    <h2>Usage</h2>
-    <pre><code class="language-typescript" highlight>import {{'{'}} NgModule } from "@angular/core";
+    <section>
+      <h2>Usage</h2>
+      <pre><code class="language-typescript" highlight>import {{'{'}} NgModule } from "@angular/core";
 import {{'{'}} NgxIbanModule } from "ngx-iban";
 
 @NgModule({{'{'}}
   imports: [NgxIbanModule]
 })
 export class AppModule {{'{'}}}</code></pre>
-    Then in your component you can use the validation in a template-driven form:
-    <pre><code class="language-html" highlight>&lt;form&gt;
+      <h3>Template-driven form</h3>
+      <pre><code class="language-html" highlight>&lt;form&gt;
   &lt;input type="text" [(ngModel)]="iban" ngxIban&gt;
 
   &lt;!-- Or with an ISO 3166-1 alpha-2 country code --&gt;
   &lt;input type="text" [(ngModel)]="iban" ngxIban="NL"&gt;
 &lt;/form&gt;</code></pre>
-    Or in a reactive form:
-    <pre><code class="language-typescript" highlight>import {{'{'}} Component } from "@angular/core";
+      <h3>Reactive form</h3>
+      <pre><code class="language-typescript" highlight>import {{'{'}} Component } from "@angular/core";
 import {{'{'}} FormControl } from "@angular/forms";
 import {{'{'}} ibanValidator } from "ngx-iban";
 
@@ -43,8 +44,13 @@ export class MyComponent {{'{'}}
   // Or with an ISO 3166-1 alpha-2 country code
   iban = new FormControl("", ibanValidator("NL"));
 }</code></pre>
-    <pre><code class="language-html" highlight>&lt;form&gt;
+      <pre><code class="language-html" highlight>&lt;form&gt;
   &lt;input type="text" [formControl]="iban"&gt;
 &lt;/form&gt;</code></pre>
+      <h3>Pipe</h3>
+      <pre><code class="language-html" highlight>&lt;span&gt;{{'{'}}{{'{'}} 'GB82WEST12345698765432' | iban }}&lt;/span&gt;</code></pre>
+      becomes
+      <pre><code class="language-html" highlight>&lt;span&gt;GB82 WEST 1234 5698 7654 32&lt;/span&gt;</code></pre>
+    </section>
   </div>
 </div>
