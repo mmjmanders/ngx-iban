@@ -25,6 +25,14 @@ or
 yarn add iban ngx-iban
 ```
 
+## Compatibility table
+
+|ngx-iban|Angular|
+|-|-|
+|7.x|7.x|
+|8.x|8.x|
+|9.x|9.x|
+
 ## Usage
 
 ```ts
