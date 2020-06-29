@@ -83,8 +83,7 @@
               "projects/demo-app/src/assets"
             ],
             "styles": ["projects/demo-app/src/styles.scss"],
-            "scripts": [],
-            "es5BrowserSupport": true
+            "scripts": []
           },
           "configurations": {
             "production": {
