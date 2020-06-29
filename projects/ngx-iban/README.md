@@ -1,6 +1,6 @@
 # ngx-iban
 
-This Angular 9 module consists of three parts:
+This Angular 10 module consists of three parts:
 
 1. a directive to use in template-driven forms;
 2. a validator to use in reactive forms;
