@@ -15,6 +15,8 @@ export class DemoComponent implements OnInit {
   ibanInput = new FormControl("", ibanValidator());
   languageInput = new FormControl("");
 
+  ibanForPipe: string;
+
   readonly countries: string[] = Object.keys(
     isoCountries.getAlpha2Codes()
   ).sort((a, b) => a.localeCompare(b));

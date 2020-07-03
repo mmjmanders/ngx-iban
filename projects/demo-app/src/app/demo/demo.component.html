@@ -85,5 +85,28 @@
         </div>
       </form>
     </section>
+    <section>
+      <h2>Pipe</h2>
+      <form>
+        <div class="form-row">
+          <div class="form-group col-10">
+            <label for="ibanForPipe">IBAN</label>
+            <input
+              [(ngModel)]="ibanForPipe"
+              [ngModelOptions]="{ standalone: true }"
+              class="form-control"
+              id="ibanForPipe"
+              type="text"
+            />
+          </div>
+        </div>
+        <div *ngIf="ibanForPipe" class="form-row">
+          <div class="form-group col-10">
+            The IBAN in print format is
+            <span class="text-monospace">{{ ibanForPipe | iban }}</span>
+          </div>
+        </div>
+      </form>
+    </section>
   </div>
 </div>
