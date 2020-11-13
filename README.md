@@ -1,6 +1,6 @@
 # ngx-iban
 
-This Angular 10 module consists of three parts:
+This Angular 11 module consists of three parts:
 
 1. a directive to use in template-driven forms;
 2. a validator to use in reactive forms;
@@ -33,6 +33,7 @@ yarn add iban ngx-iban
 |8.x|8.x|
 |9.x|9.x|
 |10.x|10.x|
+|11.x|11.x|
 
 ## Usage
 
