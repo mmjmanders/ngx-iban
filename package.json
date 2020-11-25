@@ -24,7 +24,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "bootstrap": "^4.5.0",
     "core-js": "^2.5.4",
-    "highlight.js": "^9.18.1",
+    "highlight.js": "^10.1.2",
     "i18n-iso-countries": "^6.0.0",
     "iban": "0.0.14",
     "rxjs": "~6.6.3",
