@@ -27,3 +27,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist/demo-app
           force_orphan: true
+          user_name: 'Mark Manders'
+          user_email: 'mmjmanders@gmail.com'
