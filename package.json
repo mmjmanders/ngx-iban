@@ -26,7 +26,7 @@
     "core-js": "^2.5.4",
     "highlight.js": "^9.18.1",
     "i18n-iso-countries": "^6.0.0",
-    "iban": "0.0.14",
+    "ibantools": "^3.2.4",
     "rxjs": "~6.5.5",
     "zone.js": "~0.9.1"
   },
@@ -37,7 +37,6 @@
     "@angular/compiler-cli": "~8.2.14",
     "@angular/language-service": "~8.2.14",
     "@types/highlight.js": "^9.12.4",
-    "@types/iban": "0.0.30",
     "@types/jest": "^26.0.1",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.1",
