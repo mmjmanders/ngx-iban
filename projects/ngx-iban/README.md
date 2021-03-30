@@ -16,13 +16,13 @@ You can see a live demo of the module [here](https://mmjmanders.github.io/ngx-ib
 You can install `ngx-iban` via:
 
 ```bash
-npm install iban ngx-iban --save
+npm install ibantools ngx-iban --save
 ```
 
 or
 
 ```bash
-yarn add iban ngx-iban
+yarn add ibantools ngx-iban
 ```
 
 ## Compatibility table
@@ -32,6 +32,8 @@ yarn add iban ngx-iban
 |7.x|7.x|
 |8.x|8.x|
 |9.x|9.x|
+|10.x|10.x|
+|11.x|11.x|
 
 ## Usage
 
