@@ -104,6 +104,16 @@ describe("IbanDirective", () => {
       expect(directive.validate(input)).toBeNull();
     });
 
+    it("should yield valid for valid IBAN all lowercase", () => {
+      const input = new FormControl("nl42test0519098218");
+      expect(directive.validate(input)).toBeNull();
+    });
+
+    it("should yield valid for valid IBAN mixed case", () => {
+      const input = new FormControl("nL42tEsT0519098218");
+      expect(directive.validate(input)).toBeNull();
+    });
+
     it("should yield invalid for invalid IBAN", () => {
       const input = new FormControl("NL42TEST0519098217");
       expect(directive.validate(input)).toBeTruthy();
