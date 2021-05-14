@@ -6,18 +6,18 @@ import {
   Validator,
   ValidatorFn
 } from "@angular/forms";
-import { isValidIBAN } from "ibantools";
+import { isValidIBAN, electronicFormatIBAN } from "ibantools";
 
 export function ibanValidator(countryCode?: string): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     if (countryCode && control.value) {
       return /^[A-Z]{2}$/i.test(countryCode) &&
         new RegExp(`^${countryCode}.*$`, "i").test(control.value) &&
-        isValidIBAN(control.value)
+        isValidIBAN(electronicFormatIBAN(control.value))
         ? null
         : { iban: { value: control.value } };
     } else if (control.value) {
-      return isValidIBAN(control.value)
+      return isValidIBAN(electronicFormatIBAN(control.value))
         ? null
         : { iban: { value: control.value } };
     }
