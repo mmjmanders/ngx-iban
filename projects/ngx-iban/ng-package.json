@@ -3,9 +3,6 @@
   "dest": "../../dist/ngx-iban",
   "assets": ["LICENSE.md"],
   "lib": {
-    "entryFile": "src/public-api.ts",
-    "umdModuleIds": {
-      "ibantools": "ibantools"
-    }
+    "entryFile": "src/public-api.ts"
   }
 }

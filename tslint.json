@@ -1,9 +1,0 @@
-{
-  "extends": ["tslint-plugin-prettier", "tslint-config-prettier"],
-  "rules": {
-    "deprecation": {
-      "severity": "warning"
-    },
-    "prettier": true
-  }
-}

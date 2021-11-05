@@ -35,6 +35,7 @@ yarn add ibantools ngx-iban
 |10.x|10.x|
 |11.x|11.x|
 |12.x|12.x|
+|13.x|13.x|
 
 ## Usage
 
