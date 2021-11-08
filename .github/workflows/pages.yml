@@ -18,9 +18,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build module
-        run: npx ng build ngx-iban --configuration production
+        run: npx ng build ngx-iban
       - name: Build demo page
-        run: npx ng build demo-app --base-href=/ngx-iban/ --configuration production
+        run: npx ng build demo-app --base-href=/ngx-iban/
       - name: Deploy GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

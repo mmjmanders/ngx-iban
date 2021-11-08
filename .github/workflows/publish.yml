@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build module
-        run: npx ng build ngx-iban --configuration production
+        run: npx ng build ngx-iban
       - name: Publish package
         run: npm publish ./dist/ngx-iban
         env:
