@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { UntypedFormControl } from "@angular/forms";
 import { ibanValidator } from "ngx-iban";
 import * as isoCountries from "i18n-iso-countries";
 
@@ -12,8 +12,8 @@ export class DemoComponent implements OnInit {
   iban: string;
   language: string = "";
 
-  ibanInput = new FormControl("", ibanValidator());
-  languageInput = new FormControl("");
+  ibanInput = new UntypedFormControl("", ibanValidator());
+  languageInput = new UntypedFormControl("");
 
   ibanForPipe: string;
 

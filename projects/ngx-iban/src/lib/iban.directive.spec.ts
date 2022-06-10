@@ -1,7 +1,7 @@
 import { IbanDirective, ibanValidator } from "./iban.directive";
 import {
-  FormControl,
-  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
   FormsModule,
   ReactiveFormsModule
 } from "@angular/forms";
@@ -48,12 +48,12 @@ class TemplateDrivenFormComponentWithCountryCode {
   `
 })
 class ReactiveFormComponent {
-  form: FormGroup;
-  iban: FormControl;
+  form: UntypedFormGroup;
+  iban: UntypedFormControl;
 
   constructor() {
-    this.iban = new FormControl("", ibanValidator());
-    this.form = new FormGroup({
+    this.iban = new UntypedFormControl("", ibanValidator());
+    this.form = new UntypedFormGroup({
       iban: this.iban
     });
   }
@@ -67,14 +67,14 @@ class ReactiveFormComponent {
   `
 })
 class ReactiveFormComponentWithCountryCode implements OnInit {
-  form: FormGroup;
-  iban: FormControl;
-  language: FormControl;
+  form: UntypedFormGroup;
+  iban: UntypedFormControl;
+  language: UntypedFormControl;
 
   constructor() {
-    this.iban = new FormControl("", ibanValidator("BE"));
-    this.language = new FormControl("BE");
-    this.form = new FormGroup({
+    this.iban = new UntypedFormControl("", ibanValidator("BE"));
+    this.language = new UntypedFormControl("BE");
+    this.form = new UntypedFormGroup({
       iban: this.iban
     });
   }
@@ -100,22 +100,22 @@ describe("IbanDirective", () => {
     });
 
     it("should yield valid for valid IBAN", () => {
-      const input = new FormControl("NL42TEST0519098218");
+      const input = new UntypedFormControl("NL42TEST0519098218");
       expect(directive.validate(input)).toBeNull();
     });
 
     it("should yield valid for valid IBAN all lowercase", () => {
-      const input = new FormControl("nl42test0519098218");
+      const input = new UntypedFormControl("nl42test0519098218");
       expect(directive.validate(input)).toBeNull();
     });
 
     it("should yield valid for valid IBAN mixed case", () => {
-      const input = new FormControl("nL42tEsT0519098218");
+      const input = new UntypedFormControl("nL42tEsT0519098218");
       expect(directive.validate(input)).toBeNull();
     });
 
     it("should yield invalid for invalid IBAN", () => {
-      const input = new FormControl("NL42TEST0519098217");
+      const input = new UntypedFormControl("NL42TEST0519098217");
       expect(directive.validate(input)).toBeTruthy();
     });
   });
