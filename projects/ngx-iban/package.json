@@ -1,9 +1,9 @@
 {
   "name": "ngx-iban",
-  "version": "14.0.0",
+  "version": "15.0.0",
   "peerDependencies": {
-    "@angular/common": "14.x",
-    "@angular/core": "14.x",
+    "@angular/common": "^15",
+    "@angular/core": "^15",
     "ibantools": "^4.1.5"
   },
   "repository": {
