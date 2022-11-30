@@ -1,6 +1,6 @@
 {
   "name": "ngx-iban",
-  "version": "15.0.0",
+  "version": "15.0.1",
   "peerDependencies": {
     "@angular/common": "15.x",
     "@angular/core": "15.x",
