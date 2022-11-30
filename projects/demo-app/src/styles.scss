@@ -1,7 +1,7 @@
 @import "scss/fonts";
 @import "scss/variables";
-@import "~highlight.js/scss/foundation";
-@import "~bootstrap/scss/bootstrap";
+@import "node_modules/highlight.js/scss/foundation";
+@import "node_modules/bootstrap/scss/bootstrap";
 
 main {
   @extend .pt-3, .pb-3;
