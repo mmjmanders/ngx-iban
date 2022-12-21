@@ -9,13 +9,13 @@ import * as isoCountries from "i18n-iso-countries";
   templateUrl: "./demo.component.html"
 })
 export class DemoComponent implements OnInit {
-  iban: string;
+  iban?: string;
   language: string = "";
 
   ibanInput = new UntypedFormControl("", ibanValidator());
   languageInput = new UntypedFormControl("");
 
-  ibanForPipe: string;
+  ibanForPipe?: string;
 
   readonly countries: string[] = Object.keys(
     isoCountries.getAlpha2Codes()
