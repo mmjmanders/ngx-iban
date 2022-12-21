@@ -5,7 +5,7 @@ import { friendlyFormatIBAN } from "ibantools";
   name: "iban"
 })
 export class IbanPipe implements PipeTransform {
-  transform(value: string, separator?: string): string {
+  transform(value?: string | null, separator?: string): string | null {
     return value ? friendlyFormatIBAN(value, separator) : null;
   }
 }

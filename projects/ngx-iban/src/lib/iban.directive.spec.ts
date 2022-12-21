@@ -21,7 +21,7 @@ import { By } from "@angular/platform-browser";
   `
 })
 class TemplateDrivenFormComponent {
-  iban: string;
+  iban?: string;
 }
 
 @Component({
@@ -36,7 +36,7 @@ class TemplateDrivenFormComponent {
   `
 })
 class TemplateDrivenFormComponentWithCountryCode {
-  iban: string;
+  iban?: string;
   language: string = "BE";
 }
 

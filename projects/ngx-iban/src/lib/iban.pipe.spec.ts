@@ -8,7 +8,7 @@ import { By } from "@angular/platform-browser";
 })
 class TestComponent {
   iban: string = "GB82WEST12345698765432";
-  separator: string;
+  separator?: string;
 }
 
 describe("IbanPipe", () => {

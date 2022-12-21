@@ -13,11 +13,11 @@ export function ibanValidator(countryCode?: string): ValidatorFn {
     if (countryCode && control.value) {
       return /^[A-Z]{2}$/i.test(countryCode) &&
         new RegExp(`^${countryCode}.*$`, "i").test(control.value) &&
-        isValidIBAN(electronicFormatIBAN(control.value))
+        isValidIBAN(electronicFormatIBAN(control.value)!)
         ? null
         : { iban: { value: control.value } };
     } else if (control.value) {
-      return isValidIBAN(electronicFormatIBAN(control.value))
+      return isValidIBAN(electronicFormatIBAN(control.value)!)
         ? null
         : { iban: { value: control.value } };
     }
@@ -33,7 +33,7 @@ export function ibanValidator(countryCode?: string): ValidatorFn {
 })
 export class IbanDirective implements Validator, OnChanges {
   @Input("ngxIban") countryCode?: string;
-  private _onChange: () => void;
+  private _onChange?: () => void;
 
   validate(control: AbstractControl): ValidationErrors | null {
     return ibanValidator(this.countryCode)(control);
