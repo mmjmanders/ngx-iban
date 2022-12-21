@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'projects/demo-app/**'
 
 jobs:
   pages:
