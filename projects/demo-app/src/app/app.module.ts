@@ -8,7 +8,13 @@ import { AppRoutingModule } from "./app-routing.module";
 import { InstallationComponent } from "./installation/installation.component";
 import { DemoComponent } from "./demo/demo.component";
 import { HighlightCodeDirective } from "./highlight-code.directive";
-import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import {
+  FaIconLibrary,
+  FontAwesomeModule
+} from "@fortawesome/angular-fontawesome";
+import { faPersonChalkboard } from "@fortawesome/free-solid-svg-icons/faPersonChalkboard";
+import { faFileLines } from "@fortawesome/free-solid-svg-icons/faFileLines";
+import { faCreditCard } from "@fortawesome/free-solid-svg-icons/faCreditCard";
 
 @NgModule({
   declarations: [
@@ -28,4 +34,8 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private readonly library: FaIconLibrary) {
+    library.addIcons(faCreditCard, faPersonChalkboard, faFileLines);
+  }
+}
