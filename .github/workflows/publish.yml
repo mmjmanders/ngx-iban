@@ -45,6 +45,6 @@ jobs:
         run: pnpm build ngx-iban
 
       - name: Publish package
-        run: pnpm publish ./dist/ngx-iban
+        run: pnpm publish --no-git-checks ./dist/ngx-iban
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
