@@ -6,6 +6,7 @@ on:
       - master
     paths:
       - 'projects/demo-app/**'
+      - 'projects/ngx-iban/package.json'
 
 jobs:
   pages:
