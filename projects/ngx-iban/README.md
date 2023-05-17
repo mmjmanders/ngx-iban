@@ -27,17 +27,18 @@ yarn add ibantools ngx-iban
 
 ## Compatibility table
 
-|ngx-iban|Angular|
-|-|-|
-|7.x|7.x|
-|8.x|8.x|
-|9.x|9.x|
-|10.x|10.x|
-|11.x|11.x|
-|12.x|12.x|
-|13.x|13.x|
-|14.x|14.x|
-|15.x|15.x|
+| ngx-iban | Angular |
+|----------|---------|
+| 7.x      | 7.x     |
+| 8.x      | 8.x     |
+| 9.x      | 9.x     |
+| 10.x     | 10.x    |
+| 11.x     | 11.x    |
+| 12.x     | 12.x    |
+| 13.x     | 13.x    |
+| 14.x     | 14.x    |
+| 15.x     | 15.x    |
+| 16.x     | 16.x    |
 
 ## Usage
 
