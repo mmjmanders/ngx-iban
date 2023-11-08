@@ -39,6 +39,7 @@ yarn add ibantools ngx-iban
 | 14.x     | 14.x    |
 | 15.x     | 15.x    |
 | 16.x     | 16.x    |
+| 17.x     | 17.x    |
 
 ## Usage
 

@@ -1,10 +1,10 @@
 {
   "name": "ngx-iban",
-  "version": "16.0.0",
+  "version": "17.0.0",
   "peerDependencies": {
-    "@angular/common": "16.x",
-    "@angular/core": "16.x",
-    "ibantools": "^4.3.2"
+    "@angular/common": "17.x",
+    "@angular/core": "17.x",
+    "ibantools": "^4.3.5"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,9 @@
     "directive"
   ],
   "dependencies": {
-    "tslib": "^2.5.0"
+    "tslib": "^2.6.2"
+  },
+  "engines": {
+    "node": ">=18.13.0"
   }
 }
