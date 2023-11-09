@@ -1,3 +1,5 @@
+**WARNING: from version 17.1.0 onwards, this package will be moved to [@ngx-iban/ngx-iban](https://www.npmjs.com/package/@ngx-iban/ngx-iban)**
+
 # ngx-iban
 
 This Angular (7+) module consists of three parts:
