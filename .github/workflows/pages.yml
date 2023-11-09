@@ -3,7 +3,7 @@ name: pages
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'projects/demo-app/**'
       - 'projects/ngx-iban/package.json'
