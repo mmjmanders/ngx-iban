@@ -15,30 +15,16 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 'lts/hydrogen'
-
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 'latest'
-          run_install: false
 
-      - id: pnpm-cache
-        name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: Setup pnpm cache
-        uses: actions/cache@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          node-version: 'lts/iron'
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install --prefer-offline --frozen-lockfile
