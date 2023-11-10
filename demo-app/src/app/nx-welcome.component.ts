@@ -432,7 +432,7 @@ import { CommonModule } from '@angular/common';
         <div id="welcome">
           <h1>
             <span> Hello there, </span>
-            Welcome ngx-iban 👋
+            Welcome demo-app 👋
           </h1>
         </div>
         <!--  HERO  -->

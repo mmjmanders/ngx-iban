@@ -15,13 +15,13 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome ngx-iban'
+      'Welcome demo-app'
     );
   });
 
-  it(`should have as title 'ngx-iban'`, () => {
+  it(`should have as title 'demo-app'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ngx-iban');
+    expect(app.title).toEqual('demo-app');
   });
 });

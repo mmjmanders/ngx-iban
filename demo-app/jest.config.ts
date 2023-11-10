@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'ngx-iban',
-  preset: '../../jest.preset.js',
+  displayName: 'demo-app',
+  preset: '../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/ngx-iban',
+  coverageDirectory: '../coverage/demo-app',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

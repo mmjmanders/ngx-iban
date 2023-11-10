@@ -1,23 +1,23 @@
 {
-  "name": "ngx-iban",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "demo-app",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "ngx-iban",
-  "sourceRoot": "apps/ngx-iban/src",
+  "sourceRoot": "demo-app/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/ngx-iban",
-        "index": "apps/ngx-iban/src/index.html",
-        "browser": "apps/ngx-iban/src/main.ts",
+        "outputPath": "dist/demo-app",
+        "index": "demo-app/src/index.html",
+        "browser": "demo-app/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/ngx-iban/tsconfig.app.json",
+        "tsConfig": "demo-app/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/ngx-iban/src/favicon.ico", "apps/ngx-iban/src/assets"],
-        "styles": ["apps/ngx-iban/src/styles.scss"],
+        "assets": ["demo-app/src/favicon.ico", "demo-app/src/assets"],
+        "styles": ["demo-app/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -48,10 +48,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "ngx-iban:build:production"
+          "buildTarget": "demo-app:build:production"
         },
         "development": {
-          "buildTarget": "ngx-iban:build:development"
+          "buildTarget": "demo-app:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -59,21 +59,21 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "ngx-iban:build"
+        "buildTarget": "demo-app:build"
       }
     },
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/ngx-iban/**/*.ts", "apps/ngx-iban/**/*.html"]
+        "lintFilePatterns": ["demo-app/**/*.ts", "demo-app/**/*.html"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/ngx-iban/jest.config.ts"
+        "jestConfig": "demo-app/jest.config.ts"
       }
     }
   }
