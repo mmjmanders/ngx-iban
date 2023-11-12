@@ -32,4 +32,3 @@ jobs:
       - name: Test
         run: |
           pnpm exec nx affected -t lint,test --parallel
-          pnpm exec nx run ngx-iban:build
