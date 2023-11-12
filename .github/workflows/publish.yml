@@ -22,6 +22,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 'lts/iron'
+          registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
 
       - name: Build module
@@ -30,6 +31,6 @@ jobs:
           cp -v README.md LICENSE.md ./dist/ngx-iban
 
       - name: Publish package
-        run: pnpm publish --no-git-checks ./dist/ngx-iban
+        run: pnpm publish --access public --no-git-checks ./dist/ngx-iban
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
