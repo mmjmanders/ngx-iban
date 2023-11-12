@@ -24,8 +24,6 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: 'pnpm'
 
-      - name: Set NX_BASE and NX_HEAD
-        uses: nrwl/nx-set-shas@v3
-
       - name: Test
-        run: pnpm exec nx affected -t lint,test
+        uses: nrwl/nx-set-shas@v4
+        run: pnpm exec nx affected -t lint,test --parallel
