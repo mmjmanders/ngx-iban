@@ -6,8 +6,28 @@
     "@angular/core": "^17.0.0",
     "ibantools": "^4.3.5"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mmjmanders/ngx-iban.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmjmanders/ngx-iban/issues"
+  },
+  "author": {
+    "name": "Mark Manders",
+    "url": "https://github.com/mmjmanders",
+    "email": "mmjmanders@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "iban",
+    "directive"
+  ],
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false
+  "engines": {
+    "node": ">=18.13.0"
+  }
 }
