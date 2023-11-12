@@ -1,6 +1,6 @@
 name: test
 
-on: [pull_request, workflow_dispatch]
+on: pull_request
 
 jobs:
   test:
@@ -26,5 +26,6 @@ jobs:
 
       - name: Set NX_BASE and NX_HEAD
         uses: nrwl/nx-set-shas@v3
+
       - name: Test
         run: pnpm affected -t lint,test
