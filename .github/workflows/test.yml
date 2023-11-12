@@ -24,8 +24,10 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: 'pnpm'
 
-      - name: Test
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v4
+
+      - name: Test
         run: |
           pnpm exec nx affected -t lint,test --parallel
           pnpm exec nx run ngx-iban:build
