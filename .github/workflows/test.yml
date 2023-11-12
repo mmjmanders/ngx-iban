@@ -26,4 +26,6 @@ jobs:
 
       - name: Test
         uses: nrwl/nx-set-shas@v4
-        run: pnpm exec nx affected -t lint,test --parallel
+        run: |
+          pnpm exec nx affected -t lint,test --parallel
+          pnpm exec nx run ngx-iban:build

@@ -25,7 +25,9 @@ jobs:
           cache: 'pnpm'
 
       - name: Build module
-        run: pnpm exec nx run ngx-iban:build
+        run: |
+          pnpm exec nx run ngx-iban:build
+          cp -v README.md LICENSE.md ./dist/ngx-iban
 
       - name: Publish package
         run: pnpm publish --no-git-checks ./dist/ngx-iban
