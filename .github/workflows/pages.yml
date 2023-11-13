@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'demo-app/**'
-      - 'ngx-iban/package.json'
 
 jobs:
   pages:
