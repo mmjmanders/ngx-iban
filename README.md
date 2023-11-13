@@ -13,17 +13,7 @@ You can see a live demo of the module [here](https://mmjmanders.github.io/ngx-ib
 
 ## Installation
 
-You can install `ngx-iban` via:
-
-```bash
-npm install ibantools ngx-iban --save
-```
-
-or
-
-```bash
-yarn add ibantools ngx-iban
-```
+Just use your favorite package manager to install `ngx-iban` and `ibantools`.
 
 ## Compatibility table
 
