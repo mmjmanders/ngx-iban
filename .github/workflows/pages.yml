@@ -1,45 +1,56 @@
 name: pages
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
     paths:
-      - 'projects/demo-app/**'
-      - 'projects/ngx-iban/package.json'
+      - 'demo-app/**'
+      - 'ngx-iban/package.json'
 
 jobs:
   pages:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 'latest'
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 'lts/iron'
           cache: 'pnpm'
+          node-version: lts/iron
 
       - name: Install dependencies
         run: pnpm install --prefer-offline --frozen-lockfile
 
-      - name: Build module
-        run: pnpm build ngx-iban
-
       - name: Build demo page
-        run: pnpm build demo-app --base-href=/ngx-iban/
+        run: pnpm exec nx run demo-app:build --baseHref /ngx-iban/
 
       - name: Deploy GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: crazy-max/ghaction-github-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/demo-app
-          force_orphan: true
-          user_name: 'Mark Manders'
-          user_email: 'mmjmanders@gmail.com'
+          build_dir: dist/demo-app/browser
+          committer: "Mark Manders <mmjmanders@gmail.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

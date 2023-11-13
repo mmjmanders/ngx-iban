@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col">
+    <section>
+      <h1>Installation and usage</h1>
+      This page described the installation and usage of the
+      <code>ngx-iban</code> component.
+    </section>
+    <section>
+      <h2>Installation</h2>
+      Just use your favorite package manager to install <code>ngx-iban</code> and <code>ibantools</code>.
+    </section>
+    <section>
+      <h2>Usage</h2>
+      <pre><code class="language-typescript" highlight>import {{'{'}} NgModule &#125; from "&#64;angular/core";
+import {{'{'}} NgxIbanModule &#125; from "ngx-iban";
+
+&#64;NgModule({{'{'}}
+  imports: [NgxIbanModule]
+&#125;)
+export class AppModule {{'{'}}&#125;</code></pre>
+      <h3>Template-driven form</h3>
+      <pre><code class="language-html" highlight>&lt;form&gt;
+  &lt;input type="text" [(ngModel)]="iban" ngxIban&gt;
+
+  &lt;!-- Or with an ISO 3166-1 alpha-2 country code --&gt;
+  &lt;input type="text" [(ngModel)]="iban" ngxIban="NL"&gt;
+&lt;/form&gt;</code></pre>
+      <h3>Reactive form</h3>
+      <pre><code class="language-typescript" highlight>import {{'{'}} Component &#125; from "&#64;angular/core";
+import {{'{'}} FormControl &#125; from "&#64;angular/forms";
+import {{'{'}} ibanValidator &#125; from "ngx-iban";
+
+&#64;Component({{'{'}}
+  selector: "my-component",
+  styleUrls: ["./my.component.scss"],
+  templateUrl: "./my.component.html"
+&#125;)
+export class MyComponent {{'{'}}
+  iban = new FormControl("", ibanValidator());
+
+  // Or with an ISO 3166-1 alpha-2 country code
+  iban = new FormControl("", ibanValidator("NL"));
+&#125;</code></pre>
+      <pre><code class="language-html" highlight>&lt;form&gt;
+  &lt;input type="text" [formControl]="iban"&gt;
+&lt;/form&gt;</code></pre>
+      <h3>Pipe</h3>
+      <pre><code class="language-html" highlight>&lt;span&gt;{{'{'}}{{'{'}} 'GB82WEST12345698765432' | iban &#125;&#125;&lt;/span&gt;</code></pre>
+      becomes
+      <pre><code class="language-html" highlight>&lt;span&gt;GB82 WEST 1234 5698 7654 32&lt;/span&gt;</code></pre>
+    </section>
+  </div>
+</div>
