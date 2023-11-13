@@ -1,14 +1,24 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import {
+  FaIconLibrary,
+  FontAwesomeModule,
+} from '@fortawesome/angular-fontawesome';
+import {
+  faCreditCard,
+  faFileLines,
+  faPersonChalkboard,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [RouterModule, FontAwesomeModule],
   selector: 'ngx-iban-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'demo-app';
+  constructor(readonly library: FaIconLibrary) {
+    library.addIcons(faCreditCard, faFileLines, faPersonChalkboard);
+  }
 }

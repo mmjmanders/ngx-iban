@@ -1,1 +1,45 @@
-<ngx-iban-nx-welcome></ngx-iban-nx-welcome> <router-outlet></router-outlet>
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="container">
+    <a [routerLink]="['']" class="navbar-brand">
+      <fa-icon [icon]="['fas', 'credit-card']"></fa-icon>
+      ngx-iban</a
+    >
+    <div class="collapse navbar-collapse">
+      <div class="navbar-nav">
+        <a
+          [routerLink]="['demo']"
+          class="nav-item nav-link"
+          routerLinkActive="active"
+        >
+          <fa-icon [icon]="['fas', 'person-chalkboard']"></fa-icon>
+          Demo</a
+        >
+        <a
+          [routerLink]="['installation']"
+          class="nav-item nav-link"
+          routerLinkActive="active"
+        >
+          <fa-icon [icon]="['fas', 'file-lines']"></fa-icon>
+          Installation and usage</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main role="main">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+
+<a href="https://github.com/mmjmanders/ngx-iban"
+><img
+  alt="Fork me on GitHub"
+  class="fork-me"
+  data-recalc-dims="1"
+  height="149"
+  src="https://github.blog/wp-content/uploads/2008/12/forkme_left_white_ffffff.png?resize=149%2C149"
+  title="Fork me on GitHub"
+  width="149"
+/></a>

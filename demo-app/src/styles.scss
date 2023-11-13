@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+@import "scss/fonts";
+@import "scss/variables";
+@import "../../node_modules/highlight.js/scss/foundation";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+main {
+  @extend .pt-3, .pb-3;
+}
+
+section {
+  @extend .pt-4, .pb-4;
+}
+
+pre {
+  @extend .mt-3;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @extend .border-bottom;
+}

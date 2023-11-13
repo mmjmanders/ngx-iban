@@ -1,0 +1,112 @@
+<div class="row">
+  <div class="col">
+    <section>
+      <h1>Demo</h1>
+    </section>
+    <section>
+      <h2>Template-driven form</h2>
+      <form>
+        <div class="form-row">
+          <div class="form-group col-10">
+            <label for="iban1">IBAN</label>
+            <input
+              #input="ngModel"
+              [(ngModel)]="iban"
+              [ngModelOptions]="{ standalone: true }"
+              [ngxIban]="language"
+              class="form-control"
+              id="iban1"
+              type="text"
+            />
+            <small
+              *ngIf="input.value"
+              [ngClass]="{
+                'text-success': input.valid,
+                'text-danger': input.invalid
+              }"
+              class="form-text"
+            >
+              The entered IBAN is {{ input.valid ? "valid" : "invalid" }}
+            </small>
+          </div>
+          <div class="form-group col-2">
+            <label for="iso1">Country</label>
+            <select
+              [(ngModel)]="language"
+              [ngModelOptions]="{ standalone: true }"
+              class="form-control"
+              id="iso1"
+            >
+              <option value="">-</option>
+              <option *ngFor="let country of countries" [value]="country">{{
+                country
+                }}</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </section>
+    <section>
+      <h2>Reactive form</h2>
+      <form>
+        <div class="form-row">
+          <div class="form-group col-10">
+            <label for="iban2">IBAN</label>
+            <input
+              [formControl]="ibanInput"
+              class="form-control"
+              id="iban2"
+              type="text"
+            />
+            <small
+              *ngIf="ibanInput.value"
+              [ngClass]="{
+                'text-success': ibanInput.valid,
+                'text-danger': ibanInput.invalid
+              }"
+              class="form-text"
+            >
+              The entered IBAN is {{ ibanInput.valid ? "valid" : "invalid" }}
+            </small>
+          </div>
+          <div class="form-group col-2">
+            <label for="iso2">Country</label>
+            <select
+              [formControl]="languageInput"
+              class="form-control"
+              id="iso2"
+            >
+              <option value="">-</option>
+              <option *ngFor="let country of countries" [value]="country">{{
+                country
+                }}</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </section>
+    <section>
+      <h2>Pipe</h2>
+      <form>
+        <div class="form-row">
+          <div class="form-group col-10">
+            <label for="ibanForPipe">IBAN</label>
+            <input
+              [(ngModel)]="ibanForPipe"
+              [ngModelOptions]="{ standalone: true }"
+              class="form-control"
+              id="ibanForPipe"
+              type="text"
+            />
+          </div>
+        </div>
+        <div *ngIf="ibanForPipe" class="form-row">
+          <div class="form-group col-10">
+            The IBAN in print format is
+            <span class="text-monospace">{{ ibanForPipe | iban }}</span>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
