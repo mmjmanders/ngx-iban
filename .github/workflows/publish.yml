@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
@@ -18,20 +18,35 @@ jobs:
           version: 'latest'
           run_install: false
 
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 'lts/iron'
-          registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
+          node-version: lts/iron
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: pnpm install --prefer-offline --frozen-lockfile
 
       - name: Build module
-        run: pnpm build ngx-iban
+        run: pnpm exec run ngx-iban:build
 
       - name: Publish package
-        run: pnpm publish --no-git-checks ./dist/ngx-iban
+        run: |
+          cp -v README.md LICENSE.md ./dist/ngx-iban
+          pnpm publish ./dist/ngx-iban --access public --no-git-checks --force
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
