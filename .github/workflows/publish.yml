@@ -42,7 +42,7 @@ jobs:
         run: pnpm install --prefer-offline --frozen-lockfile
 
       - name: Build module
-        run: pnpm exec run ngx-iban:build
+        run: pnpm exec nx run ngx-iban:build
 
       - name: Publish package
         run: |
