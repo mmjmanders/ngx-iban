@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
-    "demo-app:start": "nx run demo-app:serve --ssl"
+    "demo-app:start": "nx run demo-app:serve --ssl",
+    "demo-app:start:production": "nx run demo-app:serve:production --ssl"
   },
   "private": true,
   "dependencies": {

@@ -28,7 +28,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Build demo page
-        run: pnpm exec nx run demo-app:build --baseHref /ngx-iban/
+        run: pnpm exec nx run demo-app:build --baseHref /ngx-iban
 
       - name: Deploy GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4
