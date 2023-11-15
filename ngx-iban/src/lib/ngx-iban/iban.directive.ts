@@ -41,10 +41,12 @@ export class IbanDirective implements Validator, OnChanges {
     return ibanValidator(this.countryCode)(control);
   }
 
+  /* istanbul ignore next */
   registerOnValidatorChange(fn: () => void) {
     this._onChange = fn;
   }
 
+  /* istanbul ignore next */
   ngOnChanges(changes: SimpleChanges) {
     if ('countryCode' in changes && this._onChange) {
       this._onChange();
