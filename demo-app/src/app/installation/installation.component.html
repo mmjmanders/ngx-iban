@@ -11,43 +11,35 @@
     </section>
     <section>
       <h2>Usage</h2>
-      <pre><code class="language-typescript" highlight>import {{'{'}} NgModule &#125; from "&#64;angular/core";
-import {{'{'}} NgxIbanModule &#125; from "ngx-iban";
-
-&#64;NgModule({{'{'}}
-  imports: [NgxIbanModule]
-&#125;)
-export class AppModule {{'{'}}&#125;</code></pre>
-      <h3>Template-driven form</h3>
-      <pre><code class="language-html" highlight>&lt;form&gt;
-  &lt;input type="text" [(ngModel)]="iban" ngxIban&gt;
-
-  &lt;!-- Or with an ISO 3166-1 alpha-2 country code --&gt;
-  &lt;input type="text" [(ngModel)]="iban" ngxIban="NL"&gt;
-&lt;/form&gt;</code></pre>
-      <h3>Reactive form</h3>
+      <h3>Directive</h3>
       <pre><code class="language-typescript" highlight>import {{'{'}} Component &#125; from "&#64;angular/core";
-import {{'{'}} FormControl &#125; from "&#64;angular/forms";
-import {{'{'}} ibanValidator &#125; from "ngx-iban";
+import {{'{'}} IbanDirective &#125; from "ngx-iban";
 
 &#64;Component({{'{'}}
+  imports: [IbanDirective],
   selector: "my-component",
-  styleUrls: ["./my.component.scss"],
-  templateUrl: "./my.component.html"
-&#125;)
-export class MyComponent {{'{'}}
-  iban = new FormControl("", ibanValidator());
+  template: `
+    &lt;form&gt;
+      &lt;input type="text" [(ngModel)]="iban" ngxIban&gt;
 
-  // Or with an ISO 3166-1 alpha-2 country code
-  iban = new FormControl("", ibanValidator("NL"));
-&#125;</code></pre>
-      <pre><code class="language-html" highlight>&lt;form&gt;
-  &lt;input type="text" [formControl]="iban"&gt;
-&lt;/form&gt;</code></pre>
+      &lt;!-- Or with an ISO 3166-1 alpha-2 country code --&gt;
+      &lt;input type="text" [(ngModel)]="iban" ngxIban="NL"&gt;
+
+      &lt;!-- Or in a reactive form --&gt;
+      &lt;input type="text" [formControl]="iban" ngxIban&gt;
+    &lt;/form&gt;
+  `
+&#125;)
+export class MyComponent {{'{'}}&#125;</code></pre>
       <h3>Pipe</h3>
       <pre><code class="language-html" highlight>&lt;span&gt;{{'{'}}{{'{'}} 'GB82WEST12345698765432' | iban &#125;&#125;&lt;/span&gt;</code></pre>
       becomes
       <pre><code class="language-html" highlight>&lt;span&gt;GB82 WEST 1234 5698 7654 32&lt;/span&gt;</code></pre>
+      <p>Of course don't forget to import <code>IbanPipe</code> in your component.</p>
+      <h3>Validator</h3>
+      <pre><code class="language-typescript" highlight>import {{'{'}} ibanValidator &#125; from "ngx-iban";
+
+new FormControl("", ibanValidator());</code></pre>
     </section>
   </div>
 </div>

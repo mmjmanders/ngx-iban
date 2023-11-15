@@ -28,6 +28,7 @@ export const ibanValidator: (countryCode?: string) => ValidatorFn = (
 
 @Directive({
   selector: '[ngxIban]',
+  standalone: true,
   providers: [
     { provide: NG_VALIDATORS, useExisting: IbanDirective, multi: true },
   ],

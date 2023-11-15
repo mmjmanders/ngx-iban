@@ -4,14 +4,20 @@ import {
   ReactiveFormsModule,
   UntypedFormControl,
 } from '@angular/forms';
-import { ibanValidator, NgxIbanModule } from 'ngx-iban';
+import { IbanDirective, IbanPipe, ibanValidator } from 'ngx-iban';
 import * as isoCountries from 'i18n-iso-countries';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'ngx-iban-demo',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, NgxIbanModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    IbanDirective,
+    IbanPipe,
+  ],
   styleUrls: ['./demo.component.scss'],
   templateUrl: './demo.component.html',
 })
