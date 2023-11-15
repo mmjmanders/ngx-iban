@@ -20,7 +20,7 @@
     "@fortawesome/angular-fontawesome": "0.14.x",
     "@fortawesome/fontawesome-svg-core": "^6.0.0",
     "@fortawesome/free-solid-svg-icons": "^6.0.0",
-    "@nx/angular": "17.1.1",
+    "@nx/angular": "17.1.2",
     "bootstrap": "^5.3.2",
     "highlight.js": "^11.9.0",
     "i18n-iso-countries": "^7.7.0",
@@ -39,13 +39,13 @@
     "@angular/cli": "~17.0.0",
     "@angular/compiler-cli": "~17.0.0",
     "@angular/language-service": "~17.0.0",
-    "@nx/devkit": "17.1.1",
-    "@nx/eslint": "17.1.1",
-    "@nx/eslint-plugin": "17.1.1",
-    "@nx/jest": "17.1.1",
-    "@nx/js": "17.1.1",
-    "@nx/playwright": "17.1.1",
-    "@nx/workspace": "17.1.1",
+    "@nx/devkit": "17.1.2",
+    "@nx/eslint": "17.1.2",
+    "@nx/eslint-plugin": "17.1.2",
+    "@nx/jest": "17.1.2",
+    "@nx/js": "17.1.2",
+    "@nx/playwright": "17.1.2",
+    "@nx/workspace": "17.1.2",
     "@playwright/test": "^1.36.0",
     "@schematics/angular": "~17.0.0",
     "@swc-node/register": "~1.6.7",
@@ -64,7 +64,7 @@
     "jsonc-eslint-parser": "^2.1.0",
     "lint-staged": "^15.1.0",
     "ng-packagr": "~17.0.0",
-    "nx": "17.1.1",
+    "nx": "17.1.2",
     "postcss": "^8.4.5",
     "postcss-import": "~14.1.0",
     "postcss-preset-env": "~7.5.0",
@@ -79,3 +79,4 @@
     "node": "^18.13.0 || ^20.9.0"
   }
 }
+
