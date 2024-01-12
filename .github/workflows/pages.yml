@@ -7,10 +7,10 @@ on:
       - main
     paths:
       - 'demo-app/**'
-      - 'ngx-iban/package.json'
+      - 'ngx-iban/**'
 
 jobs:
-  pages:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -22,24 +22,12 @@ jobs:
           version: 'latest'
           run_install: false
 
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - name: Setup pnpm cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
+          node-version-file: '.nvmrc'
           cache: 'pnpm'
-          node-version: lts/iron
+          cache-dependency-path: 'pnpm-lock.yaml'
 
       - name: Install dependencies
         run: pnpm install --prefer-offline --frozen-lockfile
@@ -47,10 +35,21 @@ jobs:
       - name: Build demo page
         run: pnpm exec nx run demo-app:build --baseHref /ngx-iban/
 
-      - name: Deploy GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v4
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          build_dir: dist/demo-app/browser
-          committer: "Mark Manders <mmjmanders@gmail.com>"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          path: 'dist/demo-app/browser/'
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

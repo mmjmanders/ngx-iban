@@ -6,6 +6,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright:v1.40.1-jammy
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -18,45 +19,18 @@ jobs:
           version: 'latest'
           run_install: false
 
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - name: Setup pnpm cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
+          node-version-file: '.nvmrc'
           cache: 'pnpm'
-          node-version: 'lts/iron'
+          cache-dependency-path: 'pnpm-lock.yaml'
 
       - name: Install dependencies
         run: pnpm install --prefer-offline --frozen-lockfile
-
-      - name: Install playwright
-        run: pnpm exec playwright install --with-deps
 
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v4
 
       - name: Test
         run: pnpm exec nx affected -t lint,test,e2e --configuration=ci
-
-      - name: Archive code coverage results
-        uses: actions/upload-artifact@v3
-        with:
-          name: code-coverage-report
-          path: coverage/ngx-iban/
-      
-      - name: Archive e2e results
-        uses: actions/upload-artifact@v3
-        with:
-          name: e2e-report
-          path: dist/.playwright/demo-app-e2e/playwright-report/
