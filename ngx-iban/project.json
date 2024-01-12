@@ -31,14 +31,7 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": [
-          "ngx-iban/**/*.ts",
-          "ngx-iban/**/*.html",
-          "ngx-iban/package.json"
-        ]
-      }
+      "outputs": ["{options.outputFile}"]
     }
   }
 }
