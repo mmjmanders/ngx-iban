@@ -23,7 +23,7 @@ import { CommonModule } from '@angular/common';
 })
 export class DemoComponent implements OnInit {
   iban?: string;
-  language: string = '';
+  language = '';
 
   ibanInput = new UntypedFormControl('', ibanValidator());
   languageInput = new UntypedFormControl('');
@@ -31,7 +31,7 @@ export class DemoComponent implements OnInit {
   ibanForPipe?: string;
 
   readonly countries: string[] = Object.keys(
-    isoCountries.getAlpha2Codes()
+    isoCountries.getAlpha2Codes(),
   ).sort((a, b) => a.localeCompare(b));
 
   ngOnInit() {
