@@ -23,7 +23,7 @@ import { CommonModule } from '@angular/common';
 })
 export class DemoComponent implements OnInit {
   iban?: string;
-  language: string = '';
+  language = '';
 
   ibanInput = new UntypedFormControl('', ibanValidator());
   languageInput = new UntypedFormControl('');
