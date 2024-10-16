@@ -14,11 +14,11 @@ export const ibanValidator: (countryCode?: string) => ValidatorFn = (
   return (control: AbstractControl): ValidationErrors | null => {
     if (countryCode && control.value) {
       return new RegExp(`^${countryCode}.*$`, 'i').test(control.value) &&
-        isValidIBAN(electronicFormatIBAN(control.value)!)
+        isValidIBAN(electronicFormatIBAN(control.value) as string)
         ? null
         : { iban: { value: control.value } };
     } else if (control.value) {
-      return isValidIBAN(electronicFormatIBAN(control.value)!)
+      return isValidIBAN(electronicFormatIBAN(control.value) as string)
         ? null
         : { iban: { value: control.value } };
     }
