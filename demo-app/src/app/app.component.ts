@@ -9,10 +9,11 @@ import {
   faFileLines,
   faPersonChalkboard,
 } from '@fortawesome/free-solid-svg-icons';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, FontAwesomeModule],
+  imports: [RouterModule, FontAwesomeModule, NgOptimizedImage],
   selector: 'ngx-iban-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
