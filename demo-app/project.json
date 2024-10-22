@@ -19,7 +19,12 @@
         "assets": ["demo-app/src/favicon.ico", "demo-app/src/assets"],
         "styles": ["demo-app/src/styles.scss"],
         "scripts": [],
-        "allowedCommonJsDependencies": ["i18n-iso-countries"]
+        "allowedCommonJsDependencies": ["i18n-iso-countries"],
+        "server": "demo-app/src/main.server.ts",
+        "prerender": true,
+        "ssr": {
+          "entry": "demo-app/server.ts"
+        }
       },
       "configurations": {
         "production": {
