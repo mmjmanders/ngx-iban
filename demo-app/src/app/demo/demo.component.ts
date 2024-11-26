@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'ngx-iban-demo',
-  standalone: true,
   imports: [
     CommonModule,
     FormsModule,
