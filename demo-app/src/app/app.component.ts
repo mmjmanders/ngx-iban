@@ -12,7 +12,6 @@ import {
 import { NgOptimizedImage } from '@angular/common';
 
 @Component({
-  standalone: true,
   imports: [RouterModule, FontAwesomeModule, NgOptimizedImage],
   selector: 'ngx-iban-root',
   templateUrl: './app.component.html',
