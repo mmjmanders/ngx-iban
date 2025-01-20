@@ -6,31 +6,30 @@ on:
       - '**'
 
 jobs:
+  pnpm_install:
+    uses: ./.github/workflows/.pnpm_install.yml
+    with:
+      with_cache: true
   publish:
     runs-on: ubuntu-latest
+    needs: pnpm_install
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - run: |
+          echo "store-dir=.pnpm-store" | tee -a $GITHUB_WORKSPACE/.npmrc
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
-          cache-dependency-path: 'pnpm-lock.yaml'
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: Install dependencies
-        run: pnpm install --prefer-offline --frozen-lockfile
-
-      - name: Build module
-        run: pnpm exec nx run ngx-iban:build
-
-      - name: Publish package
-        run: |
+          node-version-file: .nvmrc
+          registry-url: https://registry.npmjs.org
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ./.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+      - run: pnpm install --prefer-offline --frozen-lockfile
+      - run: pnpm exec nx run ngx-iban:build
+      - run: |
           cp -v README.md LICENSE.md ./dist/ngx-iban
           pnpm publish ./dist/ngx-iban --access public --no-git-checks --force
         env:
