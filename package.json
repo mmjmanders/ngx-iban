@@ -22,7 +22,7 @@
     "@fortawesome/angular-fontawesome": "1.0.0",
     "@fortawesome/fontawesome-svg-core": "^6.7.1",
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
-    "@nx/angular": "20.2.0",
+    "@nx/angular": "20.3.2",
     "bootstrap": "^5.3.3",
     "express": "~4.21.2",
     "highlight.js": "^11.10.0",
@@ -36,19 +36,19 @@
     "@angular-devkit/build-angular": "19.0.4",
     "@angular-devkit/core": "19.0.4",
     "@angular-devkit/schematics": "19.0.4",
-    "@angular-eslint/eslint-plugin": "19.0.1",
-    "@angular-eslint/eslint-plugin-template": "19.0.1",
-    "@angular-eslint/template-parser": "19.0.1",
+    "@angular-eslint/eslint-plugin": "19.0.2",
+    "@angular-eslint/eslint-plugin-template": "19.0.2",
+    "@angular-eslint/template-parser": "19.0.2",
     "@angular/cli": "~19.0.4",
     "@angular/compiler-cli": "19.0.3",
     "@angular/language-service": "19.0.3",
-    "@nx/devkit": "20.2.0",
-    "@nx/eslint": "20.2.0",
-    "@nx/eslint-plugin": "20.2.0",
-    "@nx/jest": "20.2.0",
-    "@nx/js": "20.2.0",
-    "@nx/playwright": "20.2.0",
-    "@nx/workspace": "20.2.0",
+    "@nx/devkit": "20.3.2",
+    "@nx/eslint": "20.3.2",
+    "@nx/eslint-plugin": "20.3.2",
+    "@nx/jest": "20.3.2",
+    "@nx/js": "20.3.2",
+    "@nx/playwright": "20.3.2",
+    "@nx/workspace": "20.3.2",
     "@playwright/test": "^1.49.0",
     "@schematics/angular": "19.0.4",
     "@swc-node/register": "1.9.2",
@@ -70,7 +70,7 @@
     "jsonc-eslint-parser": "^2.4.0",
     "lint-staged": "^15.2.10",
     "ng-packagr": "19.0.1",
-    "nx": "20.2.0",
+    "nx": "20.3.2",
     "postcss": "^8.4.49",
     "postcss-import": "~14.1.0",
     "postcss-preset-env": "~7.5.0",
@@ -81,8 +81,7 @@
     "typescript": "5.6.3"
   },
   "engines": {
-    "node": "^18.19.1 || ^20.11.1 || ^22.0.0",
-    "pnpm": "^9.0.0"
+    "node": "^18.19.1 || ^20.11.1 || ^22.0.0"
   },
-  "packageManager": "pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cbadf19fa78254270403ea2f27d4e1d46a08a0f56c89b63dc8ebfd3ee53326da720273794e6200fcf0d184ab"
+  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
 }
