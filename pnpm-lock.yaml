@@ -8886,7 +8886,7 @@ snapshots:
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@babel/code-frame': 7.27.1
-      '@babel/generator': 7.27.5
+      '@babel/generator': 7.28.3
       '@babel/helper-compilation-targets': 7.27.2
       '@babel/helper-module-transforms': 7.28.3(@babel/core@7.27.7)
       '@babel/helpers': 7.28.4
@@ -9385,6 +9385,15 @@ snapshots:
   '@babel/plugin-transform-arrow-functions@7.27.1(@babel/core@7.28.4)':
     dependencies:
       '@babel/core': 7.28.4
+      '@babel/helper-plugin-utils': 7.27.1
+      '@babel/helper-remap-async-to-generator': 7.27.1(@babel/core@7.27.7)
+      '@babel/traverse': 7.28.4
+    transitivePeerDependencies:
+      - supports-color
+
+  '@babel/plugin-transform-async-generator-functions@7.28.0(@babel/core@7.27.7)':
+    dependencies:
+      '@babel/core': 7.27.7
       '@babel/helper-plugin-utils': 7.27.1
       '@babel/helper-remap-async-to-generator': 7.27.1(@babel/core@7.27.7)
       '@babel/traverse': 7.28.4
@@ -10099,7 +10108,7 @@ snapshots:
       '@babel/plugin-syntax-import-attributes': 7.27.1(@babel/core@7.27.7)
       '@babel/plugin-syntax-unicode-sets-regex': 7.18.6(@babel/core@7.27.7)
       '@babel/plugin-transform-arrow-functions': 7.27.1(@babel/core@7.27.7)
-      '@babel/plugin-transform-async-generator-functions': 7.27.1(@babel/core@7.27.7)
+      '@babel/plugin-transform-async-generator-functions': 7.28.0(@babel/core@7.27.7)
       '@babel/plugin-transform-async-to-generator': 7.27.1(@babel/core@7.27.7)
       '@babel/plugin-transform-block-scoped-functions': 7.27.1(@babel/core@7.27.7)
       '@babel/plugin-transform-block-scoping': 7.28.4(@babel/core@7.27.7)
@@ -12525,7 +12534,7 @@ snapshots:
 
   '@types/connect-history-api-fallback@1.5.4':
     dependencies:
-      '@types/express-serve-static-core': 4.19.6
+      '@types/express-serve-static-core': 5.0.2
       '@types/node': 22.18.1
 
   '@types/connect@3.4.38':
@@ -12545,6 +12554,13 @@ snapshots:
   '@types/estree@1.0.8': {}
 
   '@types/express-serve-static-core@4.19.6':
+    dependencies:
+      '@types/node': 22.18.1
+      '@types/qs': 6.14.0
+      '@types/range-parser': 1.2.7
+      '@types/send': 0.17.5
+
+  '@types/express-serve-static-core@5.0.2':
     dependencies:
       '@types/node': 22.18.1
       '@types/qs': 6.14.0
@@ -14950,7 +14966,7 @@ snapshots:
 
   istanbul-lib-instrument@6.0.3:
     dependencies:
-      '@babel/core': 7.27.7
+      '@babel/core': 7.28.4
       '@babel/parser': 7.28.4
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.2.2
@@ -17931,11 +17947,6 @@ snapshots:
   thunky@1.1.0: {}
 
   tinyglobby@0.2.14:
-    dependencies:
-      fdir: 6.5.0(picomatch@4.0.3)
-      picomatch: 4.0.3
-
-  tinyglobby@0.2.15:
     dependencies:
       fdir: 6.5.0(picomatch@4.0.3)
       picomatch: 4.0.3
