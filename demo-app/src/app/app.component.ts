@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {
   FaIconLibrary,
@@ -18,7 +18,9 @@ import { NgOptimizedImage } from '@angular/common';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(readonly library: FaIconLibrary) {
-    library.addIcons(faCreditCard, faFileLines, faPersonChalkboard);
+  private readonly library = inject(FaIconLibrary);
+
+  constructor() {
+    this.library.addIcons(faCreditCard, faFileLines, faPersonChalkboard);
   }
 }
