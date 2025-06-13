@@ -1,4 +1,10 @@
-import { AfterViewInit, Directive, ElementRef, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Directive,
+  ElementRef,
+  inject,
+  OnInit,
+} from '@angular/core';
 import hljs from 'highlight.js/lib/core';
 import bash from 'highlight.js/lib/languages/bash';
 import xml from 'highlight.js/lib/languages/xml';
@@ -9,7 +15,7 @@ import typescript from 'highlight.js/lib/languages/typescript';
   standalone: true,
 })
 export class HighlightCodeDirective implements OnInit, AfterViewInit {
-  constructor(private el: ElementRef) {}
+  private el = inject(ElementRef);
 
   ngOnInit() {
     hljs.registerLanguage('bash', bash);
