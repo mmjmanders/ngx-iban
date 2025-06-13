@@ -15,7 +15,7 @@ import typescript from 'highlight.js/lib/languages/typescript';
   standalone: true,
 })
 export class HighlightCodeDirective implements OnInit, AfterViewInit {
-  private el = inject(ElementRef);
+  private readonly el = inject(ElementRef);
 
   ngOnInit() {
     hljs.registerLanguage('bash', bash);

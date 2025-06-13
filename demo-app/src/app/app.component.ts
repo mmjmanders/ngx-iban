@@ -18,7 +18,7 @@ import { NgOptimizedImage } from '@angular/common';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  private library = inject(FaIconLibrary);
+  private readonly library = inject(FaIconLibrary);
 
   constructor() {
     this.library.addIcons(faCreditCard, faFileLines, faPersonChalkboard);
