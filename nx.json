@@ -114,5 +114,6 @@
       "typeSeparator": "."
     }
   },
-  "useInferencePlugins": false
+  "useInferencePlugins": false,
+  "neverConnectToCloud": true
 }
