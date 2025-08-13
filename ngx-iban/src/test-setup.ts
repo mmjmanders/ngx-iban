@@ -5,4 +5,5 @@ globalThis.ngJest = {
     errorOnUnknownProperties: true,
   },
 };
-import 'jest-preset-angular/setup-jest';
+import '@angular/compiler';
+import 'jest-preset-angular/jest-preset';
