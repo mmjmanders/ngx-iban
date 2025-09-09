@@ -30,5 +30,10 @@ export default defineConfig({
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
     { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
     { name: 'webkit', use: { ...devices['Desktop Safari'] } },
+    { name: 'edge', use: { ...devices['Desktop Edge'] } },
+    { name: 'phone safari', use: { ...devices['iPhone 15'] } },
+    { name: 'phone chrome', use: { ...devices['Galaxy S24'] } },
+    { name: 'tablet safari', use: { ...devices['iPad (gen 11)'] } },
+    { name: 'tablet chrome', use: { ...devices['Galaxy Tab S9'] } },
   ],
 });
