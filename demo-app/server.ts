@@ -1,5 +1,5 @@
 import { APP_BASE_HREF } from '@angular/common';
-import { CommonEngine } from '@angular/ssr/node';
+import { CommonEngine, isMainModule } from '@angular/ssr/node';
 import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
@@ -47,7 +47,7 @@ export function app(): express.Express {
   return server;
 }
 
-function run(): void {
+if (isMainModule(import.meta.url)) {
   const port = process.env['PORT'] || 4000;
 
   // Start up the Node server
@@ -56,5 +56,3 @@ function run(): void {
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }
-
-run();

@@ -1,16 +1,26 @@
-import { ApplicationConfig, isDevMode } from '@angular/core';
+import {
+  ApplicationConfig,
+  isDevMode,
+  provideBrowserGlobalErrorListeners,
+  provideZoneChangeDetection,
+} from '@angular/core';
 import {
   provideRouter,
   RouterFeatures,
   withDebugTracing,
-  withHashLocation,
 } from '@angular/router';
 import { appRoutes } from './app.routes';
-import { provideClientHydration } from '@angular/platform-browser';
+import {
+  provideClientHydration,
+  withEventReplay,
+} from '@angular/platform-browser';
 
-const features: RouterFeatures[] = isDevMode()
-  ? [withDebugTracing()]
-  : [withHashLocation()];
+const features: RouterFeatures[] = isDevMode() ? [withDebugTracing()] : [];
 export const appConfig: ApplicationConfig = {
-  providers: [provideClientHydration(), provideRouter(appRoutes, ...features)],
+  providers: [
+    provideClientHydration(withEventReplay()),
+    provideBrowserGlobalErrorListeners(),
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(appRoutes, ...features),
+  ],
 };

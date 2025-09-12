@@ -21,7 +21,7 @@
         "scripts": [],
         "allowedCommonJsDependencies": ["i18n-iso-countries"],
         "server": "demo-app/src/main.server.ts",
-        "prerender": true,
+        "outputMode": "static",
         "ssr": {
           "entry": "demo-app/server.ts"
         }
@@ -78,6 +78,15 @@
       "options": {
         "jestConfig": "demo-app/jest.config.ts",
         "tsConfig": "demo-app/tsconfig.spec.json"
+      }
+    },
+    "serve-static": {
+      "continuous": true,
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "demo-app:build",
+        "staticFilePath": "dist/demo-app/browser",
+        "spa": true
       }
     }
   }
