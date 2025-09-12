@@ -31,9 +31,7 @@ jobs:
             ./.pnpm-store
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - run: pnpm install --prefer-offline --frozen-lockfile
-      - run: >
-          pnpm exec nx run demo-app:build --baseHref /ngx-iban/
-          && mv -v dist/demo-app/browser/index.csr.html dist/demo-app/browser/index.html
+      - run: pnpm exec nx run demo-app:build:production --baseHref /ngx-iban/          
       - uses: actions/upload-pages-artifact@v4
         with:
           path: dist/demo-app/browser/
