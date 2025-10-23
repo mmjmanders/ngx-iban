@@ -20,6 +20,9 @@ import { NgOptimizedImage } from '@angular/common';
 export class AppComponent {
   private readonly library = inject(FaIconLibrary);
 
+  // @ts-expect-error false positive
+  readonly version = import.meta.env?.VITE_BUILD_SHA || 'dev';
+
   constructor() {
     this.library.addIcons(faCreditCard, faFileLines, faPersonChalkboard);
   }
