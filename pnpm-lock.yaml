@@ -11,7 +11,9 @@ overrides:
   form-data@>=4.0.0 <4.0.4: '>=4.0.4'
   koa@>=2.0.0 <2.16.2: '>=2.16.2'
   koa@>=3.0.0-alpha.0 <3.0.1: '>=3.0.1'
+  koa@>=3.0.1 <3.0.3: '>=3.0.3'
   on-headers@<1.1.0: '>=1.1.0'
+  playwright@<1.55.1: '>=1.55.1'
   tmp@<=0.2.3: '>=0.2.4'
   vite@>=7.1.0 <=7.1.4: '>=7.1.5'
 
@@ -5798,8 +5800,8 @@ packages:
   koa-compose@4.1.0:
     resolution: {integrity: sha512-8ODW8TrDuMYvXRwra/Kh7/rJo9BtOfPc6qO8eAfC80CnCvSjSl0bkRM24X6/XBBEyj0v1nRUQ1LyOy3dbqOWXw==}
 
-  koa@3.0.1:
-    resolution: {integrity: sha512-oDxVkRwPOHhGlxKIDiDB2h+/l05QPtefD7nSqRgDfZt8P+QVYFWjfeK8jANf5O2YXjk8egd7KntvXKYx82wOag==}
+  koa@3.0.3:
+    resolution: {integrity: sha512-MeuwbCoN1daWS32/Ni5qkzmrOtQO2qrnfdxDHjrm6s4b59yG4nexAJ0pTEFyzjLp0pBVO80CZp0vW8Ze30Ebow==}
     engines: {node: '>= 18'}
 
   launch-editor@2.11.1:
@@ -6573,13 +6575,13 @@ packages:
     resolution: {integrity: sha512-4peoBq4Wks0riS0z8741NVv+/8IiTvqnZAr8QGgtdifrtpdXbNw/FxRS1l6NFqm4EMzuS0EDqNNx4XGaz8cuyQ==}
     engines: {node: '>=18'}
 
-  playwright-core@1.55.0:
-    resolution: {integrity: sha512-GvZs4vU3U5ro2nZpeiwyb0zuFaqb9sUiAJuyrWpcGouD8y9/HLgGbNRjIph7zU9D3hnPaisMl9zG9CgFi/biIg==}
+  playwright-core@1.56.1:
+    resolution: {integrity: sha512-hutraynyn31F+Bifme+Ps9Vq59hKuUCz7H1kDOcBs+2oGguKkWTU50bBWrtz34OUWmIwpBTWDxaRPXrIXkgvmQ==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.55.0:
-    resolution: {integrity: sha512-sdCWStblvV1YU909Xqx0DhOjPZE4/5lJsIS84IfN9dAZfcl/CIZ5O8l3o0j7hPMjDvqoTF8ZUcc+i/GL5erstA==}
+  playwright@1.56.1:
+    resolution: {integrity: sha512-aFi5B0WovBHTEvpM3DzXTUaeN6eN0qWnTkKx4NQaH4Wvcmc153PdaY2UBdSYKaGYw+UyWXSVyxDUg5DoPEttjw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -11194,7 +11196,7 @@ snapshots:
       chalk: 3.0.0
       fs-extra: 9.1.0
       isomorphic-ws: 5.0.0(ws@8.18.0)
-      koa: 3.0.1
+      koa: 3.0.3
       lodash.clonedeepwith: 4.5.0
       log4js: 6.9.1
       node-schedule: 2.1.1
@@ -11219,7 +11221,7 @@ snapshots:
       chalk: 3.0.0
       fs-extra: 9.1.0
       isomorphic-ws: 5.0.0(ws@8.18.0)
-      koa: 3.0.1
+      koa: 3.0.3
       lodash.clonedeepwith: 4.5.0
       log4js: 6.9.1
       node-schedule: 2.1.1
@@ -12172,7 +12174,7 @@ snapshots:
 
   '@playwright/test@1.55.0':
     dependencies:
-      playwright: 1.55.0
+      playwright: 1.56.1
 
   '@popperjs/core@2.11.8': {}
 
@@ -15761,7 +15763,7 @@ snapshots:
 
   koa-compose@4.1.0: {}
 
-  koa@3.0.1:
+  koa@3.0.3:
     dependencies:
       accepts: 1.3.8
       content-disposition: 0.5.4
@@ -16645,11 +16647,11 @@ snapshots:
     dependencies:
       find-up-simple: 1.0.1
 
-  playwright-core@1.55.0: {}
+  playwright-core@1.56.1: {}
 
-  playwright@1.55.0:
+  playwright@1.56.1:
     dependencies:
-      playwright-core: 1.55.0
+      playwright-core: 1.56.1
     optionalDependencies:
       fsevents: 2.3.2
 
