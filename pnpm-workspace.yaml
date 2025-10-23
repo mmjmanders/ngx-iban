@@ -1,3 +1,6 @@
+onlyBuiltDependencies:
+  - nx
+
 overrides:
   '@angular/platform-server@>=20.0.0-next.0 <20.3.0': '>=20.3.0'
   '@angular/ssr@>=20.0.0-next.0 <20.3.0': '>=20.3.0'
