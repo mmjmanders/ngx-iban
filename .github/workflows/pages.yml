@@ -16,7 +16,6 @@ jobs:
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
       - run: pnpm install
-      - run: echo "VITE_BUILD_SHA=$(git rev-parse --short HEAD)" | tee -a $GITHUB_WORKSPACE/.env
       - run: npx nx run demo-app:build:production --baseHref /ngx-iban/
       - uses: actions/upload-pages-artifact@v4
         with:
