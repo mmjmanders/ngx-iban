@@ -3,6 +3,10 @@ on:
     tags:
       - '**'
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -20,5 +24,3 @@ jobs:
       - run: |
           cp -v README.md LICENSE.md ./dist/ngx-iban
           npm publish ./dist/ngx-iban --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,4 +1,12 @@
+ignoredBuiltDependencies:
+  - lmdb
+  - msgpackr-extract
+  - unrs-resolver
+
 onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@swc/core'
+  - esbuild
   - nx
 
 overrides:
