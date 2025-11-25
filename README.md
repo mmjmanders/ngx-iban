@@ -35,6 +35,7 @@ Just use your favorite package manager to install `ngx-iban` and `ibantools`.
 | 18.x     | 18.x    |
 | 19.x     | 19.x    |
 | 20.x     | 20.x    |
+| 21.x     | 21.x    |
 
 ## Usage
 
