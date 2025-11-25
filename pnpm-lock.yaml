@@ -49,6 +49,12 @@ importers:
       '@angular/router':
         specifier: 20.3.7
         version: 20.3.7(@angular/common@20.3.14(@angular/core@20.3.7(@angular/compiler@20.3.7)(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@20.3.7(@angular/compiler@20.3.7)(rxjs@7.8.2)(zone.js@0.15.0))(@angular/platform-browser@20.3.7(@angular/animations@20.3.7(@angular/core@20.3.7(@angular/compiler@20.3.7)(rxjs@7.8.2)(zone.js@0.15.0)))(@angular/common@20.3.14(@angular/core@20.3.7(@angular/compiler@20.3.7)(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@20.3.7(@angular/compiler@20.3.7)(rxjs@7.8.2)(zone.js@0.15.0)))(rxjs@7.8.2)
+      '@fontsource-variable/montserrat':
+        specifier: ^5.2.8
+        version: 5.2.8
+      '@fontsource-variable/source-code-pro':
+        specifier: ^5.2.7
+        version: 5.2.7
       '@fortawesome/angular-fontawesome':
         specifier: 3.0.0
         version: 3.0.0(@angular/core@20.3.7(@angular/compiler@20.3.7)(rxjs@7.8.2)(zone.js@0.15.0))
@@ -1622,6 +1628,12 @@ packages:
   '@eslint/js@8.57.1':
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+
+  '@fontsource-variable/montserrat@5.2.8':
+    resolution: {integrity: sha512-d8wykq7GCKhEOlLwEuQIOK3w3qsXNxwDlH0meru4AZZzQ4/+rZyvHWKL6BBtHdmbovSHEEQDkwkD8qYUKlcFtQ==}
+
+  '@fontsource-variable/source-code-pro@5.2.7':
+    resolution: {integrity: sha512-kZ0VNwnhvSA7vu5MaiO52eicQ4zC+k+8HBLZb+1js0MK/RngLy25NEUFB1y/AKd0ZMwru88T433QBcFf9m/huw==}
 
   '@fortawesome/angular-fontawesome@3.0.0':
     resolution: {integrity: sha512-+8Dd6DoJnqArfrZ5NvjHyRL64IIkTigXclbOOcFdYQ8/WFERQUDaEU6SAV8Q0JBpJhMS1McED7YCOCAE6SIVyA==}
@@ -10374,6 +10386,10 @@ snapshots:
       - supports-color
 
   '@eslint/js@8.57.1': {}
+
+  '@fontsource-variable/montserrat@5.2.8': {}
+
+  '@fontsource-variable/source-code-pro@5.2.7': {}
 
   '@fortawesome/angular-fontawesome@3.0.0(@angular/core@20.3.7(@angular/compiler@20.3.7)(rxjs@7.8.2)(zone.js@0.15.0))':
     dependencies:
