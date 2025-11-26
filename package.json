@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "prepare": "husky",
+    "prepare": "is-ci || husky",
     "demo-app:start": "nx run demo-app:serve --ssl",
     "demo-app:e2e": "nx run demo-app-e2e:e2e --ui"
   },
@@ -67,6 +67,7 @@
     "eslint-config-prettier": "10.0.0",
     "eslint-plugin-playwright": "^0.15.3",
     "husky": "^9.1.7",
+    "is-ci": "^4.1.0",
     "jest": "30.0.5",
     "jest-environment-jsdom": "30.0.5",
     "jest-preset-angular": "15.0.0",
