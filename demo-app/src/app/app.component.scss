@@ -1,3 +1,15 @@
+.navbar {
+  --bs-bg-opacity: 1;
+
+  @media (prefers-color-scheme: light) {
+    background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity));
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));
+  }
+}
+
 .fork-me {
   position: absolute;
   top: 0;
