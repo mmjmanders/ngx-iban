@@ -3868,6 +3868,13 @@ packages:
     peerDependencies:
       postcss: ^8.1.0
 
+  autoprefixer@10.4.22:
+    resolution: {integrity: sha512-ARe0v/t9gO28Bznv6GgqARmVqcWOV3mfgUPn9becPHMiD3o9BwlRgaeccZnwTpZ7Zwqrm+c1sUSsMxIzQzc8Xg==}
+    engines: {node: ^10 || ^12 || >=14}
+    hasBin: true
+    peerDependencies:
+      postcss: ^8.1.0
+
   axios@1.12.2:
     resolution: {integrity: sha512-vMJzPewAlRyOgxV2dU0Cuz2O8zzzx9VYtbJOaBgXFeLc4IV/Eg50n4LowmehOOR61S8ZMpc2K5Sa7g6A4jfkUw==}
 
@@ -4015,6 +4022,11 @@ packages:
 
   browserslist@4.26.0:
     resolution: {integrity: sha512-P9go2WrP9FiPwLv3zqRD/Uoxo0RSHjzFCiQz7d4vbmwNqQFo9T9WCeP/Qn5EbcKQY6DBbkxEXNcpJOmncNrb7A==}
+    engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
+    hasBin: true
+
+  browserslist@4.28.0:
+    resolution: {integrity: sha512-tbydkR/CxfMwelN0vwdP/pLkDwyAASZ+VfWm4EOwlB6SWhx1sYnWLqo8N5j0rAzPfzfRaxt0mM/4wPU/Su84RQ==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
 
@@ -4216,6 +4228,10 @@ packages:
 
   commander@14.0.1:
     resolution: {integrity: sha512-2JkV3gUZUVrbNA+1sjBOYLsMZ5cEEl8GTFP2a4AVz5hvasAMCQ1D2l2le/cX+pV4N6ZU17zjUahLpIXRrnWL8A==}
+    engines: {node: '>=20'}
+
+  commander@14.0.2:
+    resolution: {integrity: sha512-TywoWNNRbhoD0BXs1P3ZEScW8W5iKrnbithIl0YH+uCmBd0QpPOA8yc82DS3BIE5Ma6FnBVUsJ7wVUDz4dvOWQ==}
     engines: {node: '>=20'}
 
   commander@14.0.2:
@@ -10483,7 +10499,6 @@ snapshots:
   '@csstools/postcss-logical-resize@3.0.0(postcss@8.5.6)':
     dependencies:
       postcss: 8.5.6
-      postcss-value-parser: 4.2.0
 
   '@csstools/postcss-logical-viewport-units@3.0.4(postcss@8.5.6)':
     dependencies:
@@ -10549,6 +10564,14 @@ snapshots:
 
   '@csstools/postcss-scope-pseudo-class@4.0.1(postcss@8.5.6)':
     dependencies:
+      '@csstools/css-calc': 2.1.4(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)
+      '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
+      '@csstools/css-tokenizer': 3.0.4
+      postcss: 8.5.6
+
+  '@csstools/postcss-text-decoration-shorthand@4.0.3(postcss@8.5.6)':
+    dependencies:
+      '@csstools/color-helpers': 5.1.0
       postcss: 8.5.6
       postcss-selector-parser: 7.1.1
 
@@ -12101,7 +12124,7 @@ snapshots:
       '@rspack/dev-server': 1.1.4(@rspack/core@1.5.3(@swc/helpers@0.5.17))(@types/express@4.17.21)(webpack@5.101.3(@swc/core@1.5.7(@swc/helpers@0.5.17)))
       '@rspack/plugin-react-refresh': 1.5.1(react-refresh@0.17.0)
       autoprefixer: 10.4.22(postcss@8.5.6)
-      browserslist: 4.28.0
+      browserslist: 4.26.0
       css-loader: 6.11.0(@rspack/core@1.5.3(@swc/helpers@0.5.17))(webpack@5.101.3(@swc/core@1.5.7(@swc/helpers@0.5.17)))
       enquirer: 2.3.6
       express: 4.22.1
@@ -13633,7 +13656,7 @@ snapshots:
 
   caniuse-api@3.0.0:
     dependencies:
-      browserslist: 4.28.0
+      browserslist: 4.26.0
       caniuse-lite: 1.0.30001757
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
