@@ -3,8 +3,8 @@
 This Angular (7+) library consists of three parts:
 
 1. a directive to use in forms;
-2. a pipe to transform a string to the IBAN format (groups of 4 characters);
-3. a validator to use in reactive forms;
+2. a pipe to transform a string to the IBAN format (groups of four characters);
+3. a validator to use in reactive forms.
 
 An optional ISO 3166-1 alpha-2 country code can be passed as a parameter to both the directive and the validator.
 When given, validation also checks if the entered IBAN is valid for that specific country.
@@ -12,10 +12,11 @@ When given, validation also checks if the entered IBAN is valid for that specifi
 You can see a live demo of the module [here](https://mmjmanders.github.io/ngx-iban/).
 
 **Important note**: From version 17.3.0 onward this library exports [standalone components](https://angular.io/guide/standalone-components). This mitigates the need to import `NgxIbanModule`.
+From version 21.0.0 the `NgxIbanModule` doesn't event exist anymore.
 
 ## Installation
 
-Just use your favorite package manager to install `ngx-iban` and `ibantools`.
+Use your favorite package manager to install `ngx-iban` and `ibantools`.
 
 ## Compatibility table
 
