@@ -25,7 +25,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
     "@nx/angular": "22.1.0",
     "bootstrap": "^5.3.8",
-    "express": "~4.21.2",
+    "express": "~4.22.0",
     "highlight.js": "^11.11.1",
     "i18n-iso-countries": "^7.14.0",
     "ibantools": "^4.5.1",
