@@ -6,23 +6,16 @@ import {
   ValidatorFn,
 } from '@angular/forms';
 import { Directive, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { electronicFormatIBAN, isValidIBAN } from 'ibantools';
+import { isValidIBAN } from './iban.validator';
 
 export const ibanValidator: (countryCode?: string) => ValidatorFn = (
   countryCode
 ) => {
   return (control: AbstractControl): ValidationErrors | null => {
-    if (countryCode && control.value) {
-      return new RegExp(`^${countryCode}.*$`, 'i').test(control.value) &&
-        isValidIBAN(electronicFormatIBAN(control.value) as string)
-        ? null
-        : { iban: { value: control.value } };
-    } else if (control.value) {
-      return isValidIBAN(electronicFormatIBAN(control.value) as string)
-        ? null
-        : { iban: { value: control.value } };
+    if (!control.value) {
+      return null;
     }
-    return null;
+    return isValidIBAN(control.value, countryCode) ? null : { iban: true };
   };
 };
 
@@ -38,7 +31,8 @@ export class IbanDirective implements Validator, OnChanges {
   private _onChange?: () => void;
 
   validate(control: AbstractControl): ValidationErrors | null {
-    return ibanValidator(this.countryCode)(control);
+    if (!control.value) return null;
+    return isValidIBAN(control.value, this.countryCode) ? null : { iban: true };
   }
 
   /* istanbul ignore next */
