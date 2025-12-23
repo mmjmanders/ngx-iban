@@ -23,7 +23,7 @@
     "@fortawesome/angular-fontawesome": "4.0.0",
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
-    "@nx/angular": "22.3.1",
+    "@nx/angular": "22.3.3",
     "bootstrap": "^5.3.8",
     "highlight.js": "^11.11.1",
     "i18n-iso-countries": "^7.14.0",
@@ -42,14 +42,14 @@
     "@angular/cli": "~21.0.3",
     "@angular/compiler-cli": "21.0.6",
     "@angular/language-service": "21.0.6",
-    "@nx/devkit": "22.3.1",
-    "@nx/eslint": "22.3.1",
-    "@nx/eslint-plugin": "22.3.1",
-    "@nx/jest": "22.3.1",
-    "@nx/js": "22.3.1",
-    "@nx/playwright": "22.3.1",
-    "@nx/web": "22.3.1",
-    "@nx/workspace": "22.3.1",
+    "@nx/devkit": "22.3.3",
+    "@nx/eslint": "22.3.3",
+    "@nx/eslint-plugin": "22.3.3",
+    "@nx/jest": "22.3.3",
+    "@nx/js": "22.3.3",
+    "@nx/playwright": "22.3.3",
+    "@nx/web": "22.3.3",
+    "@nx/workspace": "22.3.3",
     "@playwright/test": "^1.57.0",
     "@schematics/angular": "21.0.3",
     "@swc-node/register": "1.9.2",
@@ -73,7 +73,7 @@
     "jsonc-eslint-parser": "^2.4.2",
     "lint-staged": "^16.2.7",
     "ng-packagr": "21.0.1",
-    "nx": "22.3.1",
+    "nx": "22.3.3",
     "postcss": "^8.5.6",
     "postcss-import": "~16.1.1",
     "postcss-preset-env": "~10.4.0",
@@ -86,5 +86,5 @@
   "engines": {
     "node": "^20.19.0 || ^22.12.0 || ^24.0.0"
   },
-  "packageManager": "pnpm@10.26.0+sha512.3b3f6c725ebe712506c0ab1ad4133cf86b1f4b687effce62a9b38b4d72e3954242e643190fc51fa1642949c735f403debd44f5cb0edd657abe63a8b6a7e1e402"
+  "packageManager": "pnpm@10.26.2+sha512.0e308ff2005fc7410366f154f625f6631ab2b16b1d2e70238444dd6ae9d630a8482d92a451144debc492416896ed16f7b114a86ec68b8404b2443869e68ffda6"
 }
