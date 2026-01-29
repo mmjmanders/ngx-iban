@@ -61,7 +61,7 @@
     "@typescript-eslint/utils": "^7.18.0",
     "autoprefixer": "^10.4.23",
     "baseline-browser-mapping": "^2.9.11",
-    "eslint": "8.57.1",
+    "eslint": "9.26.0",
     "eslint-config-prettier": "10.0.0",
     "eslint-plugin-playwright": "^0.15.3",
     "husky": "^9.1.7",
