@@ -16,7 +16,7 @@ From version 21.0.0 the `NgxIbanModule` doesn't event exist anymore.
 
 ## Installation
 
-Use your favorite package manager to install `ngx-iban` and `ibantools`.
+Use your favorite package manager to install `ngx-iban`.
 
 ## Compatibility table
 
