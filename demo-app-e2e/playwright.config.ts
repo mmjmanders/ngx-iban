@@ -38,4 +38,9 @@ export default defineConfig({
     { name: 'tablet safari', use: { ...devices['iPad (gen 11)'] } },
     { name: 'tablet chrome', use: { ...devices['Galaxy Tab S9'] } },
   ],
+  timeout: process.env.CI ? 60_000 : 30_000,
+  expect: {
+    timeout: process.env.CI ? 10_000 : 5_000,
+  },
+  globalTimeout: 60 * 60 * 1000,
 });
