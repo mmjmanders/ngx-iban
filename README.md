@@ -1,3 +1,5 @@
+**ARCHIVED: This project is archived and moved to [GitLab](https://gitlab.com/mmjmanders/ngx-iban)**
+
 # ngx-iban
 
 This Angular (7+) library consists of three parts:
